@@ -9,42 +9,42 @@ angular.module('app.routes', [])
     $stateProvider
         .state('login', {
         url: '/login',
-        templateUrl: 'loginPage/login.html',
+        templateUrl: 'views/loginPage/login.html',
         controller: 'LoginCtrl as login'
     })
     .state('signup', {
         url: '/signup',
-        templateUrl: 'signupPage/signup.html',
+        templateUrl: 'views/signupPage/signup.html',
         controller: 'SignupCtrl as signup'
     })
 
     .state('homepage', {
         url: '/homepage',
-        templateUrl: 'homePage/home.html',
+        templateUrl: 'views/homePage/home.html',
         controller: 'HomeCtrl'
     })
 
     .state('schedule', {
         url: '/schedule',
-        templateUrl: 'schedulePage/schedule.html',
+        templateUrl: 'views/schedulePage/schedule.html',
         controller: 'ScheduleCtrl'
     })
 
     .state('info', {
         url: '/info',
-        templateUrl: 'infoPage/info.html',
+        templateUrl: 'views/infoPage/info.html',
         controller: 'InfoCtrl'
     })
 
     .state('social', {
         url: '/social',
-        templateUrl: 'socialPage/social.html',
+        templateUrl: 'views/socialPage/social.html',
         controller: 'SocialCtrl'
     })
 
     .state('contact', {
         url: '/contact',
-        templateUrl: 'contactPage/contact.html',
+        templateUrl: 'views/contactPage/contact.html',
         controller: 'ContactCtrl'
     })
 

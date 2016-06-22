@@ -4,15 +4,15 @@
             <ion-list id="signup-list1" class=" ">
                 <label class="item item-input " id="signup-input3">
                     <span class="input-label">Email</span>
-                    <input type="text" placeholder="">
+                    <input ng-model="newUser.username" type="text">
                 </label>
                 <label class="item item-input " id="signup-input4">
                     <span class="input-label">Password</span>
-                    <input type="text" placeholder="">
+                    <input ng-model="newUser.password" type="password">
                 </label>
                 <label class="item item-input " id="signup-input5">
                     <span class="input-label">Confirm Password</span>
-                    <input type="text" placeholder="">
+                    <input ng-model="newUser.confirmPassword" type="password">
                 </label>
             </ion-list>
             <a ui-sref="login" id="signup-button4" class=" button button-stable  button-block ">Sign up</a>

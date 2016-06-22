@@ -41,15 +41,24 @@
       }
     </style>
 
-    <script src="app.js"></script>
-    <script src="loginPage/login.ctrl.js"></script>
-    <script src="signupPage/signup.ctrl.js"></script>
-    <script src="services/routes.js"></script>
-    <script src="services/auth.service.js"></script>
-
     <!-- Only required for Tab projects w/ pages in multiple tabs 
     <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
     -->
+
+<!-- bower:js -->
+<!-- endbower -->
+<!-- inject:js -->
+<script src="app.js"></script>
+<script src="services/auth.service.js"></script>
+<script src="services/routes.js"></script>
+<script src="views/contactpage/contact.ctrl.js"></script>
+<script src="views/homePage/home.ctrl.js"></script>
+<script src="views/infoPage/info.ctrl.js"></script>
+<script src="views/loginPage/login.ctrl.js"></script>
+<script src="views/schedulePage/schedule.ctrl.js"></script>
+<script src="views/signupPage/signup.ctrl.js"></script>
+<script src="views/socialPage/social.ctrl.js"></script>
+<!-- endinject -->  
 
   </head>
   <body ng-app="app" animation="slide-left-right-ios7">
