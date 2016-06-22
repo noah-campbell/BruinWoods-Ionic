@@ -8,47 +8,47 @@ angular.module('app.routes', [])
     // Each state's controller can be found in controllers.js
     $stateProvider
         .state('login', {
-        url: '/page1',
-        templateUrl: 'login/login.html',
+        url: '/login',
+        templateUrl: 'loginPage/login.html',
         controller: 'LoginCtrl as login'
     })
     .state('signup', {
-        url: '/page3',
-        templateUrl: 'signup/signup.html',
+        url: '/signup',
+        templateUrl: 'signupPage/signup.html',
         controller: 'SignupCtrl as signup'
     })
 
-    .state('page4', {
-        url: '/home',
-        templateUrl: 'templates/page4.html',
-        controller: 'page4Ctrl'
+    .state('homepage', {
+        url: '/homepage',
+        templateUrl: 'homePage/home.html',
+        controller: 'HomeCtrl'
     })
 
-    .state('page5', {
+    .state('schedule', {
         url: '/schedule',
-        templateUrl: 'templates/page5.html',
-        controller: 'page5Ctrl'
+        templateUrl: 'schedulePage/schedule.html',
+        controller: 'ScheduleCtrl'
     })
 
-    .state('page6', {
+    .state('info', {
         url: '/info',
-        templateUrl: 'templates/page6.html',
-        controller: 'page6Ctrl'
+        templateUrl: 'infoPage/info.html',
+        controller: 'InfoCtrl'
     })
 
-    .state('page7', {
+    .state('social', {
         url: '/social',
-        templateUrl: 'templates/page7.html',
-        controller: 'page7Ctrl'
+        templateUrl: 'socialPage/social.html',
+        controller: 'SocialCtrl'
     })
 
-    .state('contactUs', {
-        url: '/settings',
-        templateUrl: 'templates/contactUs.html',
-        controller: 'contactUsCtrl'
+    .state('contact', {
+        url: '/contact',
+        templateUrl: 'contactPage/contact.html',
+        controller: 'ContactCtrl'
     })
 
-    $urlRouterProvider.otherwise('/page1')
+    $urlRouterProvider.otherwise('/login')
 
 
 

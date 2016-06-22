@@ -5,10 +5,10 @@
         .module('app')
         .controller('SignupCtrl', SignupCtrl);
 
-    SignupCtrl.$inject = ['authenticationService', 'toastr'];
+    SignupCtrl.$inject = ['authenticationService'];
 
     /* @ngInject */
-    function SignupCtrl(authenticationService, toastr) {
+    function SignupCtrl(authenticationService) {
         var vm = this;
         vm.title = 'SignupCtrl';
         vm.signup = signup;
@@ -23,9 +23,9 @@
         function signup(newUser) {
         	authenticationService.signup(newUser).
         		then(function(res) {
-        			toastr.success('account successfully created!');
+        			console.log('account successfully created!');
         		}, function(err) {
-        			toastr.warning('please try again later?');
+        			console.log('please try again later?');
         		});
         }
     }
