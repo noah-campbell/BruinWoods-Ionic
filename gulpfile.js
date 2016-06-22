@@ -10,7 +10,10 @@ var wiredep = require('wiredep').stream;
 var inject = require('gulp-inject');
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./scss/**/*.scss'],
+  jsSources: ['./www/app.js', './www/services/*.js', './www/views/**/*.js'],
+  cssSources: ['./www/**/*.css'],
+  htmlSources: ['./www/**/*.html']
 };
 
 gulp.task('default', ['sass']);
@@ -53,11 +56,11 @@ gulp.task('git-check', function(done) {
 });
 
 gulp.task('injectables', function() {
-   var sources = gulp.src(paths, {read: false});
-   return gulp.src('www/index.html')
+   var sources = gulp.src(paths.jsSources, {read: false});
+   return gulp.src('./www/index.html')
        .pipe(wiredep())
-       .pipe(inject(sources))
-       .pipe(gulp.dest('.'));
-
+       .pipe(inject(sources, {relative: true}))
+       .pipe(gulp.dest('./www'));
+});
 // Start Server and dependencies
-gulp.task('serve', ['connect', 'watch', 'injectables', 'app']);
+gulp.task('serve', ['watch', 'injectables']);
