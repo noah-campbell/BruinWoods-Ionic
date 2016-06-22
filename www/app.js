@@ -6,10 +6,10 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic',
-        'app.controllers',
-        'app.routes',
-        'app.services',
-        'app.directives'
+        // 'app.controllers',
+         'app.routes'
+        // 'app.services',
+        // 'app.directives'
     ])
     .value('apiUrl', 'http://localhost:3000/api/')
     .run(function($ionicPlatform) {

@@ -44,7 +44,7 @@
             }).then(function(res) {
             	$rootScope.authenticated = true;
         		$rootScope.current_user = res.user.username;
-        		$location.path('page4');
+        		$location.path('homepage');
             }, function(err) {
             	defer.reject(err);
             });

@@ -6,6 +6,8 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var wiredep = require('wiredep').stream;
+var inject = require('gulp-inject');
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -49,3 +51,13 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+
+gulp.task('injectables', function() {
+   var sources = gulp.src(paths, {read: false});
+   return gulp.src('www/index.html')
+       .pipe(wiredep())
+       .pipe(inject(sources))
+       .pipe(gulp.dest('.'));
+
+// Start Server and dependencies
+gulp.task('serve', ['connect', 'watch', 'injectables', 'app']);

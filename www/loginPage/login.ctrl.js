@@ -5,10 +5,10 @@
         .module('app')
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['authenticationService', 'toastr'];
+    LoginCtrl.$inject = ['authenticationService'];
 
     /* @ngInject */
-    function LoginController(authenticationService, toastr) {
+    function LoginCtrl(authenticationService) {
         var vm = this;
         vm.title = 'LoginCtrl';
         vm.login = login;
@@ -23,7 +23,7 @@
         function login(username, password) {
         	authenticationService.login(username, password)
         		.then(function(data) {
-        			toastr.success('logged in!');
+        			console.log('logged in!');
         		});
         }
     }
