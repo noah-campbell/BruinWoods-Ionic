@@ -5,13 +5,15 @@
         .module('app')
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['authenticationService'];
+    LoginCtrl.$inject = ['authenticationService', '$rootScope'];
 
     /* @ngInject */
-    function LoginCtrl(authenticationService) {
+    function LoginCtrl(authenticationService, $rootScope) {
         var vm = this;
         vm.title = 'LoginCtrl';
         vm.login = login;
+        vm.facebook = facebook;
+
 
         /*activate();
 
@@ -25,6 +27,17 @@
         		.then(function(data) {
         			console.log('logged in!');
         		});
+        }
+        function facebook() {
+            authenticationService.facebook().then(
+                function(response) {
+                    console.log(JSON.stringify(response));
+                },
+                function(err) {
+                    console.log('an error occured');
+                    console.log(JSON.stringify(err));
+                }
+            );
         }
     }
 })();
