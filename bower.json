@@ -1,5 +1,5 @@
 {
- "name": "BruinWoods",
+  "name": "BruinWoods",
   "private": true,
   "description": "Bruin Woods app for summer guests",
   "homepage": "https://github.com/noah-campbell/BruinWoodsIonic",
@@ -8,13 +8,13 @@
     "ionic": "driftyco/ionic-bower#1.3.1",
     "angular-animate": "1.5.3",
     "angular-sanitize": "1.5.3",
-    "angular-ui-router": "0.2.13"
+    "angular-ui-router": "0.2.13",
+    "ng-cordova-oauth": "^0.2.8"
   },
   "authors": [
     "wesley gloria noah israel"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/noah-campbell/BruinWoodsIonic",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -22,5 +22,5 @@
     "www/lib",
     "test",
     "tests"
-  ],
+  ]
 }

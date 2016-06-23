@@ -12,12 +12,12 @@
         var vm = this;
         vm.title = 'SignupCtrl';
         vm.signup = signup;
-
+         vm.facebook = facebook;
 
 
 
         function signup(newUser) {
-            var itsreal = {
+            var user = {
                 username: newUser.username,
                 password: newUser.password
             }
@@ -29,13 +29,20 @@
                 newUser.confirmPassword = "";
                 return;
             }
-            authenticationService.signup(itsreal).
+            authenticationService.signup(user).
             then(function(res) {
-                $location.url('/login');
                 console.log('account successfully created!');
+                $location.url('/login');
             }, function(err) {
                 console.log('please try again later?');
             });
+        }
+
+        function facebook() {
+            authenticationService.facebook()
+                .then(function(data) {
+                    console.log('logged in with facebook!');
+                })
         }
     }
 })();

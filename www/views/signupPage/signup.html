@@ -15,9 +15,9 @@
                     <input ng-model="newUser.confirmPassword" type="password">
                 </label>
             </ion-list>
-            <a id="signup-button4" class=" button button-stable  button-block " ng-click=signup.signup(newUser)>Sign up</a>
+            <a id="signup-button4" class=" button button-stable  button-block " ng-click="signup.signup(newUser)">Sign up</a>
         </form>
-        <button id="signup-button5" class=" button button-positive  button-block ">Register with Facebook</button>
+        <button id="signup-button5" class=" button button-positive  button-block" ng-click="signup.facebook()">Register with Facebook</button>
         <a ui-sref="login" id="signup-button14" style="color:default;" class=" button button-positive  button-block button-clear ">Already have an account? Log in!</a>
     </ion-content>
 </ion-view>
