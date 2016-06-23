@@ -5,28 +5,37 @@
         .module('app')
         .controller('SignupCtrl', SignupCtrl);
 
-    SignupCtrl.$inject = ['authenticationService'];
+    SignupCtrl.$inject = ['authenticationService', '$location'];
 
     /* @ngInject */
-    function SignupCtrl(authenticationService) {
+    function SignupCtrl(authenticationService, $location) {
         var vm = this;
         vm.title = 'SignupCtrl';
         vm.signup = signup;
 
-        activate();
 
-        ////////////////
 
-        function activate() {
-        }
 
         function signup(newUser) {
-        	authenticationService.signup(newUser).
-        		then(function(res) {
-        			console.log('account successfully created!');
-        		}, function(err) {
-        			console.log('please try again later?');
-        		});
+            var itsreal = {
+                username: newUser.username,
+                password: newUser.password
+            }
+            if (!newUser.password || !newUser.confirmPassword || !newUser.username) {
+                return;
+            }
+            if (newUser.password !== newUser.confirmPassword) {
+                newUser.password = "";
+                newUser.confirmPassword = "";
+                return;
+            }
+            authenticationService.signup(itsreal).
+            then(function(res) {
+                $location.url('/login');
+                console.log('account successfully created!');
+            }, function(err) {
+                console.log('please try again later?');
+            });
         }
     }
 })();

@@ -11,7 +11,7 @@ angular.module('app', ['ionic',
         // 'app.services',
         // 'app.directives'
     ])
-    .value('apiUrl', 'http://localhost:3000/api/')
+    .value('apiUrl', 'http://localhost:3000/')
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
