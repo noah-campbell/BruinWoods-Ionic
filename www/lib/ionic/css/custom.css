@@ -1,0 +1,92 @@
+#schedule,
+#info,
+#social {
+    height: 25vh;
+    margin: 0px;
+    font-weight: bold;
+    left: -10px;
+    margin-right: -20px;
+}
+
+
+#schedule {
+	background-color: #3284BF;
+	font-size: 12vw;
+	padding-top: 15%;
+	color: white;
+}
+
+#scheduleHeader {
+	background-color: #3284BF;
+    font-size: 6vw;
+    color: white;
+    padding-top: 5%;
+    font-weight: 900;
+    margin-left: -10px;
+    margin-right: -20px;
+}
+
+#info {
+    background-color:white;
+    font-size: 12vw;
+    color: #3284BF;
+    padding-top: 15%;
+}
+
+#infoHeader {
+	background-color:white;
+    font-size: 6vw;
+    color: #3284BF;
+    padding-top: 5%;
+    font-weight: 900;
+    margin-left: -10px;
+}
+
+#social {
+	padding: 8%;
+	background-color: #3284BF;
+	font-size: 12vw;
+	color: white;
+	bottom: 10px;
+}
+
+#socialHeader {
+	background-color: #3284BF;
+    font-size: 6vw;
+    color: white;
+    padding-top: 5%;
+    font-weight: 900;
+    margin-left: -10px;
+    margin-right: -20px;
+}
+
+#weather {
+	height: 15vh;
+	border: none;
+}
+
+#packingList, #propertyMap, #hikingMap, #visitorPolicy, #topTenList {
+	background-color: #ffe29d;
+	margin: 0px;
+	border: white solid 1px;
+	border-radius: 6px;
+	left: -10px;
+}
+
+#topTenList {
+	margin-bottom: 20px;
+}
+
+#facebook {
+	margin-right: 40px;
+}
+
+#instagram {
+	margin-right: 100px;
+}
+
+#gallery {
+	margin-right: 0px;
+}
+
+/* style="height:auto; left:-10px;color:default;font-size:40px;border-radius:0px 0px 0px 0px;" */

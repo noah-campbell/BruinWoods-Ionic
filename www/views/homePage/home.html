@@ -1,22 +1,65 @@
 <ion-view title="" id="homepage" style="background-color:#FFFFFF;" class=" ">
     <ion-content padding="true" class="has-header">
-        <a ui-sref="contact" id="home-button24" style="font-weight:lighter;border-radius:20px 20px 20px 20px;" class=" button button-stable  button-icon icon-right ion-android-settings "></a>
+        <!-- <a ui-sref="contact" id="home-button24" style="font-weight:lighter;border-radius:20px 20px 20px 20px;" class=" button button-stable  button-icon icon-right ion-android-settings "></a> -->
         <ion-list id="home-list9" class=" ">
-            <ion-item class="item-thumbnail-left  " id="home-list-item1">
+            <ion-item class="item-thumbnail-left  " id="weather">
                 <img src="img/KLl4pjKTim9fkw3wgyi0_weather icon.png">
                 <h2>Todays Weather</h2>
                 <p>hot</p>
             </ion-item>
         </ion-list>
-        <div style="margin-right:-20px;">
-            <a ui-sref="schedule" id="home-button6" style="left:-10px;color:default;font-size:40px;border-radius:0px 0px 0px 0px;" class=" button button-positive button-large button-full ">Schedule</a>
+        <div>
+            <a ng-click="home.toggleSchedule()" ng-hide="home.schedule" id="schedule" class=" button button-large button-full ">SCHEDULE</a>
+            <div ng-show="home.schedule">
+                <h3 ng-click="home.toggleSchedule()" id="scheduleHeader">SCHEDULE</h3>
+                <p>This is a TEST</p>
+            </div>
         </div>
-        <div style="margin-right:-20px;">
-            <a ui-sref="info" id="home-button7" style="left:-10px;color:default;font-size:40px;border-radius:0px 0px 0px 0px;" class=" button button-positive button-large button-full ">Info</a>
+        <div>
+            <a ng-click="home.toggleInfo()" ng-hide="home.info" id="info" class=" button button-large button-full">INFORMATION</a>
+            <div ng-show="home.info">
+                <h3 ng-click="home.toggleInfo()" id="infoHeader">INFORMATION</h3>
+                <div style="margin-right:-20px;">
+                    <button id="packingList" class=" button button-full ">Packing List</button>
+                </div>
+                <div style="margin-right:-20px;">
+                    <button id="propertyMap" class=" button button-full ">Property Map</button>
+                </div>
+                <div style="margin-right:-20px;">
+                    <button id="hikingMap" class=" button button-full ">Hiking Trail Map</button>
+                </div>
+                <div style="margin-right:-20px;">
+                    <button id="visitorPolicy" class=" button button-full ">Visitor Policy</button>
+                </div>
+                <div style="margin-right:-20px;">
+                    <button id="topTenList" class=" button button-full ">Top 10 List for New Families</button>
+                </div>
+            </div>
         </div>
-        <div style="margin-right:-20px;">
-            <a ui-sref="social" id="home-button8" style="left:-10px;color:default;font-size:40px;border-radius:0px 0px 0px 0px;" class=" button button-positive button-large button-full ">Social</a>
+        <div>
+            <a ng-click="home.toggleSocial()" id="social" ng-hide="home.social" class=" button button-large button-full ">SOCIAL & PICTURES</a>
+            <div ng-show="home.social" class="container">
+             <h3 ng-click="home.toggleSocial()" id="socialHeader">SOCIAL</h3>
+                <div class="row">
+                    <div id="facebook">
+                        <a href="#" onclick="window.open('https://www.facebook.com/uclabruinwoods/?fref=nf', '_system', 'location=yes'); return false;">
+                            <img src="img/facebook.png" class="row-no-padding" width="80%" height="auto" style="display: inline-block; margin: 0px; padding: 0px">
+                        </a>
+                    </div>
+                    <div id="instagram">
+                        <a href="#" onclick="window.open('https://www.instagram.com/bruinwoods/', '_system', 'location=yes'); return false;">
+                            <div>
+                                <img src="img/instagram.png" class="row-no-padding" width="210%" height="auto" style="display: inline-block">
+                            </div>
+                        </a>
+                    </div>
+                    <div id="gallery">
+                        <img src="img/gallery.png" class="row-no-padding" width="100%" height="auto" style="display: inline-block">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="homepage-button-bar1" class=" button-bar "></div>
+        <div id="homepage-button-bar1" class="button-bar"></div>
+        </div>
     </ion-content>
 </ion-view>

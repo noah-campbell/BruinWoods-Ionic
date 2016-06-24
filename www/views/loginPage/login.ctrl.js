@@ -25,7 +25,7 @@
         function login(username, password) {
         	authenticationService.login(username, password)
         		.then(function(data) {
-        			console.log('logged in!');
+        			
         		});
         }
         function facebook() {
