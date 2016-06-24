@@ -12,7 +12,7 @@ var inject = require('gulp-inject');
 var paths = {
   sass: ['./scss/**/*.scss'],
   jsSources: ['./www/app.js', './www/services/*.js', './www/views/**/*.js'],
-  cssSources: ['./www/**/*.css'],
+  cssSources: ['./www/**/*.css', './www/lib/ionic/css/*.css'],
   htmlSources: ['./www/**/*.html']
 };
 

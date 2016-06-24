@@ -15,9 +15,10 @@
                     <input type="password" placeholder="" ng-model="password">
                 </label>
             </ion-list>
-            <a id="login-button19" class=" button button-stable  button-block" ng-click="login.login(username, password)">Log in</a>
+            <a ui-sref="homepage" id="login-button19" class=" button button-stable  button-block">Log in</a>
             <button id="login-button3" class=" button button-positive  button-block" ng-click="login.facebook()">Facebook</button>
             <a ui-sref="signup" id="login-button20" class=" button button-positive  button-block button-clear ">Or create an account</a>
         </form>
     </ion-content>
 </ion-view>
+<!-- ng-click="login.login(username, password)" -->

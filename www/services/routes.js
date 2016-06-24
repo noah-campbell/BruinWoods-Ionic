@@ -21,7 +21,7 @@ angular.module('app.routes', [])
     .state('homepage', {
         url: '/homepage',
         templateUrl: 'views/homePage/home.html',
-        controller: 'HomeCtrl'
+        controller: 'HomeCtrl as home'
     })
 
     .state('schedule', {
