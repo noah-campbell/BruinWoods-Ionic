@@ -12,7 +12,15 @@
             <a ng-click="home.toggleSchedule()" ng-hide="home.schedule" id="schedule" class=" button button-large button-full ">SCHEDULE</a>
             <div ng-show="home.schedule">
                 <h3 ng-click="home.toggleSchedule()" id="scheduleHeader">SCHEDULE</h3>
-                <p>This is a TEST</p>
+                <div style="margin-right:-20px;">
+                    <button id="packingList" class=" button button-full ">Master Schedule</button>
+                </div>
+                <div style="margin-right:-20px;">
+                    <button id="propertyMap" class=" button button-full ">Kids Schedule</button>
+                </div>
+                <div style="margin-right:-20px;">
+                    <button id="hikingMap" class=" button button-full ">My Schedule</button>
+                </div>
             </div>
         </div>
         <div>
@@ -39,7 +47,7 @@
         <div>
             <a ng-click="home.toggleSocial()" id="social" ng-hide="home.social" class=" button button-large button-full ">SOCIAL & PICTURES</a>
             <div ng-show="home.social" class="container">
-             <h3 ng-click="home.toggleSocial()" id="socialHeader">SOCIAL</h3>
+                <h3 ng-click="home.toggleSocial()" id="socialHeader">SOCIAL</h3>
                 <div class="row">
                     <div id="facebook">
                         <a href="#" onclick="window.open('https://www.facebook.com/uclabruinwoods/?fref=nf', '_system', 'location=yes'); return false;">
