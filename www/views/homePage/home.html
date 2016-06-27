@@ -1,13 +1,12 @@
 <ion-view title="" id="homepage" style="background-color:#FFFFFF;" class=" ">
     <ion-content padding="true" class="has-header">
         <!-- <a ui-sref="contact" id="home-button24" style="font-weight:lighter;border-radius:20px 20px 20px 20px;" class=" button button-stable  button-icon icon-right ion-android-settings "></a> -->
-        <ion-list id="home-list9" class=" ">
-            <ion-item class="item-thumbnail-left  " id="weather">
-                <img src="img/KLl4pjKTim9fkw3wgyi0_weather icon.png">
-                <h2>Todays Weather</h2>
-                <p>hot</p>
-            </ion-item>
-        </ion-list>
+        <div class="row">
+            <canvas id="weatherIcon" width="80dp" height="80dp"></canvas>
+            <h1>{{home.weather.currently.temperature}}°</h1>
+            <br>
+        </div>
+        <h3>{{home.weather.hourly.summary}}</h3>
         <div>
             <a ng-click="home.toggleSchedule()" ng-hide="home.schedule" id="schedule" class=" button button-large button-full ">SCHEDULE</a>
             <div ng-show="home.schedule">
