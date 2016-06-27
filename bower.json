@@ -22,5 +22,8 @@
     "www/lib",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular-skycons": "^2.0.2"
+  }
 }

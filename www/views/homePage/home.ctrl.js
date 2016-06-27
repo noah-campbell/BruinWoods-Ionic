@@ -32,22 +32,29 @@
         }
 
 
-
         var getWeather = function() {
             weatherService.getWeather().then(
                 function(response) {
-                    vm.weather = response.data
+                    vm.weather = response.data;
+                    console.log(vm.weather);
+                 
+        var skycons = new Skycons({"color": "black"});
+        skycons.add("weatherIcon", vm.weather.currently.icon);
+
+                     skycons.play();
+
                 }
+
             )
         }
 
-
-        console.log(vm.weather);
 
         function activate() {
             getWeather();
         }
         activate();
+ 
     }
+
 
 })();
