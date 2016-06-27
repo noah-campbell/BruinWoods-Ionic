@@ -5,11 +5,13 @@
         .module('app')
         .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = [];
+    HomeCtrl.$inject = ['weatherService'];
 
     /* @ngInject */
-    function HomeCtrl() {
-        var vm = this;
+
+
+    function HomeCtrl(weatherService) {
+        var vm = this;  
         vm.title = 'HomeCtrl';
         vm.toggleInfo = function() {
             vm.info = !vm.info;
@@ -19,23 +21,33 @@
 
         vm.toggleSchedule = function() {
             vm.schedule = !vm.schedule;
-            vm.info = false; 
+            vm.info = false;
             vm.social = false;
         }
 
         vm.toggleSocial = function() {
             vm.social = !vm.social;
-            vm.info = false; 
+            vm.info = false;
             vm.schedule = false;
         }
 
 
 
-        activate();
+        var getWeather = function() {
+            weatherService.getWeather().then(
+                function(response) {
+                    vm.weather = response.data
+                }
+            )
+        }
 
-        ////////////////
+
+        console.log(vm.weather);
 
         function activate() {
+            getWeather();
         }
+        activate();
     }
+
 })();

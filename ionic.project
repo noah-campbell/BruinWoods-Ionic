@@ -1,4 +1,8 @@
 {
   "name": "bruinapp",
-  "app_id": ""
+  "app_id": "",
+   "gulpStartupTasks": [
+    "sass",
+    "injectables"
+  ]
 }

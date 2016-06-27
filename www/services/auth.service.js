@@ -16,6 +16,7 @@
         };
         return service;
 
+
         ////////////////
 
         function signup(newUser) {
@@ -76,5 +77,8 @@
 
             return defer.promise;
         }
+
+
+
     }
 })();
