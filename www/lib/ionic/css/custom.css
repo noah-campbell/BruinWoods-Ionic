@@ -8,18 +8,17 @@
     margin-right: -20px;
 }
 
-
 #schedule {
-	font-family: sans-serif;
-	background-color: #3284BF;
-	font-size: 12vw;
-	padding-top: 15%;
-	color: white;
+    font-family: sans-serif;
+    background-color: #3284BF;
+    font-size: 12vw;
+    padding-top: 15%;
+    color: white;
 }
 
 #scheduleHeader {
-	font-family: sans-serif;
-	background-color: #3284BF;
+    font-family: sans-serif;
+    background-color: #3284BF;
     font-size: 6vw;
     color: white;
     padding-top: 5%;
@@ -29,16 +28,16 @@
 }
 
 #info {
-	font-family: sans-serif;
-    background-color:white;
+    font-family: sans-serif;
+    background-color: white;
     font-size: 12vw;
     color: #3284BF;
     padding-top: 15%;
 }
 
 #infoHeader {
-	font-family: sans-serif;
-	background-color:white;
+    font-family: sans-serif;
+    background-color: white;
     font-size: 6vw;
     color: #3284BF;
     padding-top: 5%;
@@ -47,17 +46,17 @@
 }
 
 #social {
-	font-family: sans-serif;
-	padding: 8%;
-	background-color: #3284BF;
-	font-size: 12vw;
-	color: white;
-	bottom: 10px;
+    font-family: sans-serif;
+    padding: 8%;
+    background-color: #3284BF;
+    font-size: 12vw;
+    color: white;
+    bottom: 10px;
 }
 
 #socialHeader {
-	font-family: sans-serif;
-	background-color: #3284BF;
+    font-family: sans-serif;
+    background-color: #3284BF;
     font-size: 6vw;
     color: white;
     padding-top: 5%;
@@ -67,32 +66,60 @@
 }
 
 #weather {
-	height: 15vh;
-	border: none;
+    height: 15vh;
+    border: none;
 }
 
-#packingList, #propertyMap, #hikingMap, #visitorPolicy, #topTenList {
-	background-color: #ffe29d;
-	margin: 0px;
-	border: white solid 1px;
-	border-radius: 6px;
-	left: -10px;
+#packingList,
+#propertyMap,
+#hikingMap,
+#visitorPolicy,
+#topTenList {
+    background-color: #ffe29d;
+    margin: 0px;
+    border: white solid 1px;
+    border-radius: 6px;
+    left: -10px;
 }
 
 #topTenList {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 #facebook {
-	margin-right: 40px;
+    margin-right: 40px;
 }
 
 #instagram {
-	margin-right: 100px;
+    margin-right: 100px;
 }
 
 #gallery {
-	margin-right: 0px;
+    margin-right: 0px;
 }
 
-/* style="height:auto; left:-10px;color:default;font-size:40px;border-radius:0px 0px 0px 0px;" */
+#weatherTemp {
+    margin-top: 1vh;
+    margin-bottom: 0;
+    margin-left: 10vw;
+   
+}
+
+#weatherSummary {
+   
+    margin-top: 5vw;
+    margin-bottom: 0;
+    margin-left: 5vw;
+   
+
+}
+
+#weatherInfo {
+    position: center;
+    margin-left: 2vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+ #weatherIcon {
+ 	margin-right: 3vw;
+ }
