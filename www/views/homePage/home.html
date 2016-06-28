@@ -7,46 +7,44 @@
                 <h2 id="weatherTemp">{{home.temp}}°</h2>        
         </div>
         <div>
-            <a ng-click="home.toggleSchedule()" ng-hide="home.schedule" id="schedule" class=" button button-large button-full ">SCHEDULE</a>
-            <div ng-show="home.schedule">
-                <h3 ng-click="home.toggleSchedule()" id="scheduleHeader">SCHEDULE</h3>
-                <div style="margin-right:-20px;">
-                    <button id="packingList" class=" button button-full ">Master Schedule</button>
-                </div>
-                <div style="margin-right:-20px;">
-                    <button id="propertyMap" class=" button button-full ">Kids Schedule</button>
-                </div>
-                <div style="margin-right:-20px;">
-                    <button id="hikingMap" class=" button button-full ">My Schedule</button>
+            <div id="miniHeader">
+                <a ng-click="home.toggleSchedule()" ng-hide="home.schedule" id="schedule" class=" button button-large button-full ">SCHEDULE</a>
+            </div>
+            <div ng-show="home.schedule" id="flipped">
+                <a ng-click="home.toggleSchedule()" class="button button-full scheduleHeader">SCHEDULE</a>
+                <div id="scheduleBar">
+                    <div class="button-bar">
+                        <button id="listItemSchedule" class="button-full">Master Schedule</button>
+                        <button id="listItemSchedule" class="button-full ">Kids Schedule</button>
+                        <button id="listItemSchedule" class="button-full ">My Schedule</button>
+                    </div>
                 </div>
             </div>
         </div>
         <div>
-            <a ng-click="home.toggleInfo()" ng-hide="home.info" id="info" class=" button button-large button-full">INFORMATION</a>
-            <div ng-show="home.info">
-                <h3 ng-click="home.toggleInfo()" id="infoHeader">INFORMATION</h3>
-                <div style="margin-right:-20px;">
-                    <button id="packingList" class=" button button-full ">Packing List</button>
-                </div>
-                <div style="margin-right:-20px;">
-                    <button id="propertyMap" class=" button button-full ">Property Map</button>
-                </div>
-                <div style="margin-right:-20px;">
-                    <button id="hikingMap" class=" button button-full ">Hiking Trail Map</button>
-                </div>
-                <div style="margin-right:-20px;">
-                    <button id="visitorPolicy" class=" button button-full ">Visitor Policy</button>
-                </div>
-                <div style="margin-right:-20px;">
-                    <button id="topTenList" class=" button button-full ">Top 10 List for New Families</button>
+            <a ng-click="home.toggleInfo()" ng-hide="home.info" id="info" class="button button-large button-full">INFORMATION</a>
+            <div ng-show="home.info" id="flipped1">
+                <a ng-click="home.toggleInfo()" class="button button-full infoHeader">INFORMATION</a>
+                <div class="containter" id="informationBar">
+                    <div class="button-bar">
+                        <button id="listItemInfo1" class="button-full">Hiking Trail Map</button>
+                        <button id="listItemInfo1" class="button-full">Property Map</button>
+                    </div>
+                    <div class="button-bar">
+                        <button id="listItemInfo2" class="button-full">Packing List</button>
+                        <button id="listItemInfo2" class="button-full">Visitor Policy</button>
+                        <button id="listItemInfo3" class="button-full">Top 10 List for New Families</button>
+                    </div>
                 </div>
             </div>
         </div>
         <div>
-            <a ng-click="home.toggleSocial()" id="social" ng-hide="home.social" class=" button button-large button-full ">SOCIAL & PICTURES</a>
-            <div ng-show="home.social" class="container">
-                <h3 ng-click="home.toggleSocial()" id="socialHeader">SOCIAL</h3>
-                <div class="row">
+            <div id="smallBanner">
+                <a ng-click="home.toggleSocial()" id="social" ng-hide="home.social" class=" button button-large button-full ">SOCIAL & PICTURES</a>
+            </div>
+            <div ng-show="home.social" class="container" id="flipped">
+                <a ng-click="home.toggleSocial()" class=" button button-full socialHeader">SOCIAL & PICTURES</a>
+                <div class="row" id="socialBar">
                     <div id="facebook">
                         <a href="#" onclick="window.open('https://www.facebook.com/uclabruinwoods/?fref=nf', '_system', 'location=yes'); return false;">
                             <img src="img/facebook.png" class="row-no-padding" width="80%" height="auto" style="display: inline-block; margin: 0px; padding: 0px">
@@ -64,8 +62,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="homepage-button-bar1" class="button-bar"></div>
         </div>
     </ion-content>
 </ion-view>
