@@ -1,3 +1,5 @@
+/*STYLING FOR THE HOMEPAGE SECTIONS*/
+
 #schedule,
 #info,
 #social {
@@ -6,93 +8,100 @@
     font-weight: bold;
     left: -10px;
     margin-right: -20px;
+    font-family: sans-serif;
+    font-size: 12vw;
+    padding-top: 15%;
+    color: white;
 }
 
+#flipped {
+	height: 25vh;
+	margin: 0;
+}
+
+#flipped1 {
+	height: 27vh;
+	margin: 0;
+}
 
 #schedule {
-	font-family: sans-serif;
-	background-color: #3284BF;
-	font-size: 12vw;
-	padding-top: 15%;
-	color: white;
-}
-
-#scheduleHeader {
-	font-family: sans-serif;
-	background-color: #3284BF;
-    font-size: 6vw;
-    color: white;
-    padding-top: 5%;
-    font-weight: 900;
-    margin-left: -10px;
-    margin-right: -20px;
+    background-color: rgb(33,146,249);
 }
 
 #info {
-	font-family: sans-serif;
-    background-color:white;
-    font-size: 12vw;
-    color: #3284BF;
-    padding-top: 15%;
-}
-
-#infoHeader {
-	font-family: sans-serif;
-	background-color:white;
-    font-size: 6vw;
-    color: #3284BF;
-    padding-top: 5%;
-    font-weight: 900;
-    margin-left: -10px;
+	background-color: white;
+	color: rgb(33,146,249);
 }
 
 #social {
-	font-family: sans-serif;
-	padding: 8%;
-	background-color: #3284BF;
-	font-size: 12vw;
-	color: white;
-	bottom: 10px;
+    padding-top: 8%;
+    background-color: rgb(33,146,249);
+    bottom: 10px;
 }
 
-#socialHeader {
-	font-family: sans-serif;
-	background-color: #3284BF;
+.infoHeader, .socialHeader, .scheduleHeader {
+    font-family: sans-serif;
+    background-color: white;
     font-size: 6vw;
-    color: white;
-    padding-top: 5%;
+    color: rgb(33,146,249);
+    padding: 0;
     font-weight: 900;
     margin-left: -10px;
-    margin-right: -20px;
 }
 
 #weather {
-	height: 15vh;
-	border: none;
+    height: 15vh;
+    border: none;
 }
 
-#packingList, #propertyMap, #hikingMap, #visitorPolicy, #topTenList {
-	background-color: #ffe29d;
-	margin: 0px;
-	border: white solid 1px;
-	border-radius: 6px;
-	left: -10px;
+button-bar {
+	display: block;
 }
 
-#topTenList {
-	margin-bottom: 20px;
+
+/*STYLING FOR THE LISTED CONTENTS IN HOME PAGE*/
+
+#listItemSchedule, #listItemInfo1, #listItemInfo2, #listItemInfo3 {
+    border: solid black 1px;
+    border-radius: 12px;
+    background-color: black;
+    font-weight: 900;
+    color: white;
+    margin: 2px;
+    left: -10px;
+}
+
+#listItemSchedule {
+	font-size: 19px;
+	height: 65px;
+}
+
+#listItemInfo1 {
+    font-size: 20px;
+    height: 50px;
+}
+
+#listItemInfo2 {
+    font-size: 15px;
+    height: 50px;
+}
+
+#listItemInfo3 {
+    font-size: 15px;
+    height: 50px;
 }
 
 #facebook {
-	margin-right: 40px;
+    margin-right: 40px;
 }
 
 #instagram {
-	margin-right: 100px;
+    margin-right: 100px;
 }
 
 #gallery {
-	margin-right: 0px;
+    margin-right: 0px;
 }
+
 
 /* style="height:auto; left:-10px;color:default;font-size:40px;border-radius:0px 0px 0px 0px;" */
