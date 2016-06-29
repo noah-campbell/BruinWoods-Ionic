@@ -23,10 +23,7 @@
         }*/
 
         function login(username, password) {
-        	authenticationService.login(username, password)
-        		.then(function(data) {
-        			
-        		});
+        	authenticationService.login(username, password)        		
         }
         function facebook() {
             authenticationService.facebook().then(

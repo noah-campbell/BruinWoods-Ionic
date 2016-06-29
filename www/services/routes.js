@@ -27,7 +27,7 @@ angular.module('app.routes', [])
     .state('schedule', {
         url: '/schedule',
         templateUrl: 'views/schedulePage/schedule.html',
-        controller: 'ScheduleCtrl'
+        controller: 'ScheduleCtrl as schedule'
     })
 
     .state('info', {

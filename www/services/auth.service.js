@@ -41,13 +41,12 @@
         function login(username, password) {
             /*logout();*/
             var defer = $q.defer();
+            var data = 'grant_type=password&username=' + username + '&password=' + password;
             $http({
                 method: 'POST',
                 url: apiUrl + 'auth/login',
-                data: {
-                    'username': username,
-                    'password': password
-                }
+                data: data,
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             }).then(function(res) {
                 if (res.data.state == 'success') {
                     $rootScope.authenticated = true;

@@ -9,7 +9,7 @@
 
     /* @ngInject */
     function ScheduleCtrl($ionicScrollDelegate, scheduleFactory) {
-
+        var vm = this;
         var startHour = 6;
         var endHour = 23;
         var usehalfhour = true;
@@ -23,7 +23,7 @@
 
         function getHours() {
             var hours = [];
-            for (i = startHour; i <= endHour; i++) {
+            for (var i = startHour; i <= endHour; i++) {
                 hours.push(('0' + i).slice(-2) + ':00');
                 if (usehalfhour && i < endHour) {
                     hours.push(('0' + i).slice(-2) + ':30');
@@ -84,25 +84,32 @@
         };
 
         function getEvents() {
-            var tmp = [];
+            /*var tmp = [];*/
             var date1 = new Date();
+            var events = [];
 
             //make get request for schedule.
             scheduleFactory.getSchedule()
                 .then(function(schedule) {
-                        vm.schedule = schedule;
-                        vm.schedule.forEach(function(event) {
-                            for(i=0; i<vm.schedule.length; i++) {
-                                if(i===0) {
-                                    vm.days.push(schedule[i].startTime.getDate());
-                                }
-                                else {
-                                    forEach
-                                }
-                            }
-                        })
-                    }
+                    vm.schedule = schedule;
+                    console.log(schedule);
+                 /*   vm.schedule.sort(function(a, b) {
+                        return new Date(a.startTime).getDate() - new Date(b.startTime).getDate();
+                    });
+                    for (i = 0; i < vm.schedule.length; i++) {
+                        if (i === 0) {
+                            dayEvents.push(schedule[i]);
+                        } else if (schedule[i].startTime.getDate() == dayEvents[0].startTime.getDate()) {
+                            dayEvents.push(schedule[i]);
+                        } else if ((i == (vm.schedule.length - 1)) || (schedule[i].startTime.getDate() != dayEvents[0].startTime.getDate()))
+                            events.push(dayEvents);
+                        dayEvents = [schedule[i]];
+                    };*/
                 })
+                /*console.log(events);
+            return events;*/
+        };
+
         //forEach Lopp create an array per day.
         //
 
@@ -123,7 +130,7 @@
         //Networking 18,67,172 -- ion-chatbubbles
         //Coffee Break 255,169,0, --ion-coffee
         //Dinner 255,113,0 --ion-wineglass
-        return tmp;
+
     };
 
-});
+})();

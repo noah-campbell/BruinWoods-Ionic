@@ -5,10 +5,10 @@
         .module('app')
         .factory('scheduleFactory', scheduleFactory);
 
-    scheduleFactory.$inject = ['$http', '$q'];
+    scheduleFactory.$inject = ['$http', '$q', 'apiUrl'];
 
     /* @ngInject */
-    function scheduleFactory($http, $q) {
+    function scheduleFactory($http, $q, apiUrl) {
         var service = {
             getSchedule: getSchedule
         };
@@ -20,14 +20,15 @@
         	var defer = $q.defer();
         	$http({
         		method: 'GET',
-        		url: apiUrl + 'schedules'
+        		url: apiUrl + 'api/schedules',
         	}).then(function(response) {
-        		defer.resolve(response);
+                console.log(response.data);
+        		defer.resolve(response.data);
         	},function(err) {
         		console.log(err);
         		defer.resolve(err);
         	});
-        	return defer.promise();
+        	return defer.promise;
         }
     }
 })();
