@@ -6,12 +6,13 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic',
-        // 'app.controllers',
-        'app.routes'
-        // 'app.services',
-        // 'app.directives'
+        'app.routes',
+        'LocalStorageModule'
     ])
     .value('apiUrl', 'http://localhost:3000/')
+    .config(['$httpProvider', function($httpProvider) {
+        $httpProvider.interceptors.push('authInterceptor');
+    }])
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
 
@@ -29,5 +30,7 @@ angular.module('app', ['ionic',
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
-        });
+        })
+
     })
+    
