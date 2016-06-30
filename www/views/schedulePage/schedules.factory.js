@@ -22,10 +22,10 @@
         		method: 'GET',
         		url: apiUrl + 'api/schedules',
         	}).then(function(response) {
-                console.log(response.data);
+                console.log(JSON.stringify(response.data));
         		defer.resolve(response.data);
         	},function(err) {
-        		console.log(err);
+        		console.log(JSON.stringify(err));
         		defer.resolve(err);
         	});
         	return defer.promise;
