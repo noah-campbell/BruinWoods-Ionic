@@ -23,12 +23,12 @@
         }*/
 
         function login(username, password) {
-            localStorageService.remove('authorizationData');
+            /*localStorageService.remove('authorizationData');*/
         	authenticationService.login(username, password)
                 .then(function(response) {
-                    console.log(JSON.stringify(response));
+                    console.log("login sucess" +JSON.stringify(response));
                 },function(err) {
-                    console.log(JSON.stringify(err));
+                    console.log("login error" + JSON.stringify(err));
                 })        		
         }
         function facebook() {
@@ -37,8 +37,6 @@
                     console.log(JSON.stringify(response));
                 },
                 function(err) {
-                    console.log('an error occured');
-                    console.log(JSON.stringify(err));
                 }
             );
         }

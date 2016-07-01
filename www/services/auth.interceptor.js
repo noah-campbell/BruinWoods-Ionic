@@ -18,13 +18,14 @@
         return service;
 
         function request(config) {
-
+            // grabs headers if they exist assigns empty object if they don't
             config.headers = config.headers || {};
-            var authData = localStorageService.get("authorizationData");
+            var authData = localStorageService.get('authorizationData');
+
             if (authData) {
-                                
-                config.headers.Authorization = "Bearer " + authData;
+                config.headers.access_token = authData;
             }
+
             return config;
         }
 
