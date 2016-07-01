@@ -1,7 +1,7 @@
 <ion-view title="" id="homepage" style="background-color:#FFFFFF;" class=" ">
     <ion-content padding="true" class="has-header">
         <!-- <a ui-sref="contact" id="home-button24" style="font-weight:lighter;border-radius:20px 20px 20px 20px;" class=" button button-stable  button-icon icon-right ion-android-settings "></a> -->
-        <div class="row" ng-click="home.weatherPopup()">       
+        <div class="row" id="weatherBar" ng-click="home.weatherPopup()">       
                 <canvas id="weatherIcon" width="70dp" height="70dp"></canvas>        
                 <h3 id="weatherSummary">{{home.weather.currently.summary}}</h3>
                 <h2 id="weatherTemp">{{home.temp}}°</h2>        
@@ -14,10 +14,10 @@
                 <a ng-click="home.toggleSchedule()" class="button button-full scheduleHeader">SCHEDULE</a>
                 <div id="scheduleBar">
                     <div class="button-bar">
-                        <a id="listItemSchedule" class="button-full" ui-sref='schedule'>Master Schedule</a>
+                        <a id="listItemSchedule" class="button-full" style="text-decoration: none; background-color: #ffd97f" ui-sref='schedule'>Master Schedule</a>
                         <!-- <button id="listItemSchedule" class="button-full">Master Schedule</button> -->
-                        <button id="listItemSchedule" class="button-full ">Kids Schedule</button>
-                        <button id="listItemSchedule" class="button-full ">My Schedule</button>
+                        <a id="listItemSchedule" class="button-full" style="background-color: #ffe099">Kids Schedule</a>
+                        <a id="listItemSchedule" class="button-full" style="background-color: #ffe8b2">My Schedule</a>
                     </div>
                 </div>
             </div>
@@ -28,13 +28,13 @@
                 <a ng-click="home.toggleInfo()" class="button button-full infoHeader">INFORMATION</a>
                 <div class="containter" id="informationBar">
                     <div class="button-bar">
-                        <button id="listItemInfo1" class="button-full">Hiking Trail Map</button>
-                        <button id="listItemInfo1" class="button-full">Property Map</button>
+                        <button id="listItemInfo1" class="button-full" style="background-color: #ffd97f">Hiking Trail Map</button>
+                        <button id="listItemInfo1" class="button-full" style="background-color: #ffe099">Property Map</button>
                     </div>
                     <div class="button-bar">
-                        <button id="listItemInfo2" class="button-full">Packing List</button>
-                        <button id="listItemInfo2" class="button-full">Visitor Policy</button>
-                        <button id="listItemInfo3" class="button-full">Top 10 List for New Families</button>
+                        <button id="listItemInfo2" class="button-full" style="background-color: #ffd97f">Packing List</button>
+                        <button id="listItemInfo2" class="button-full" style="background-color: #ffe099">Visitor Policy</button>
+                        <button id="listItemInfo3" class="button-full" style="background-color: #ffe8b2">Top 10 List for New Families</button>
                     </div>
                 </div>
             </div>

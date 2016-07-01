@@ -1,8 +1,39 @@
+/* STYLE FOR TOP WEATHER BAR */
+#weatherBar {
+    margin-bottom: 10px;
+}
+
+#weatherTemp {
+    margin-top: 1vh;
+    margin-bottom: 0;
+    margin-left: 10vw;
+}
+#weatherSummary {
+    width: 100%;
+    margin-top: 5vw;
+    margin-bottom: 0;
+    margin-left: 5vw;
+}
+#weatherInfo {
+    position: center;
+    margin-left: 2vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#weatherIcon {
+    margin-right: 3vw;
+}
+
+#weather {
+    height: 15vh;
+    border: none;
+}
+
+
 /*STYLING FOR THE HOMEPAGE SECTIONS*/
 #schedule,
 #info,
 #social {
-    height: 25vh;
     margin: 0px;
     font-weight: bold;
     left: -10px;
@@ -14,29 +45,38 @@
 }
 
 #schedule {
+    height: 25vh;
     background-color: rgb(33, 146, 249);
 }
 
 #info {
+    height: 28vh;
+    background-color: white;
     color: rgb(33, 146, 249);
 }
 
 #social {
+    height: 25vh;
     padding-top: 8%;
     background-color: rgb(33, 146, 249);
     bottom: 10px;
 }
 
+#flipped {
+    height: 25vh;
+    margin: -10;
+}
+
 #flipped1 {
-    height: 27vh;
-    margin: 0;
+    height: 28vh;
+    margin-bottom: -10px;
 }
 
 .infoHeader,
 .socialHeader,
 .scheduleHeader {
     font-family: sans-serif;
-    background-color: none;
+    background-color: white;
     font-size: 6vw;
     padding-top: 0;
     color: rgb(33, 146, 249);
@@ -45,29 +85,12 @@
     margin-right: -20px;
 }
 
-#weather {
-    height: 15vh;
-    border: none;
-}
-
 button-bar {
     display: block;
 }
 
 
 /*STYLING FOR THE LISTED CONTENTS IN HOME PAGE*/
-
-#listItemSchedule,
-#listItemInfo1,
-#listItemInfo2,
-#listItemInfo3 {
-    border: solid black 1px;
-    border-radius: 12px;
-    background-color: black;
-    color: white;
-    font-weight: 900;
-}
-
 #social {
     font-family: sans-serif;
     padding: 8%;
@@ -90,6 +113,7 @@ button-bar {
 }
 
 #listItemSchedule {
+    padding-top: 10px;
     font-size: 19px;
     height: 65px;
 }
@@ -118,11 +142,13 @@ button-bar {
 #listItemInfo1,
 #listItemInfo2,
 #listItemInfo3 {
-    background-color: black;
+    color: black;
+    font-weight: 200px;
     margin: 0px;
     border: white solid 1px;
     border-radius: 6px;
     left: -10px;
+    text-align: center;
 }
 
 #topTenList {
@@ -142,24 +168,3 @@ button-bar {
 }
 
 
-/* style="height:auto; left:-10px;color:default;font-size:40px;border-radius:0px 0px 0px 0px;" */
-
-#weatherTemp {
-    margin-top: 1vh;
-    margin-bottom: 0;
-    margin-left: 10vw;
-}
-#weatherSummary {
-    margin-top: 5vw;
-    margin-bottom: 0;
-    margin-left: 5vw;
-}
-#weatherInfo {
-    position: center;
-    margin-left: 2vw;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-#weatherIcon {
-    margin-right: 3vw;
-}
