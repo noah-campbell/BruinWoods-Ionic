@@ -92,7 +92,7 @@
             scheduleFactory.getSchedule()
                 .then(function(schedule) {
                     vm.schedule = schedule;
-                    console.log(JSON.stringify(schedule));
+                    console.log("schedules" + JSON.stringify(schedule));
                  /*   vm.schedule.sort(function(a, b) {
                         return new Date(a.startTime).getDate() - new Date(b.startTime).getDate();
                     });

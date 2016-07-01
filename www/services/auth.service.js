@@ -28,7 +28,6 @@
                 url: apiUrl + 'auth/signup',
                 data: newUser
             }).then(function(res) {
-                console.log(res);
                 if (res.data.state == 'success') {
                     defer.resolve(res.data.user);
                 } else {
@@ -55,11 +54,11 @@
                 console.log("reached!")
                 if (res.data.state == 'success') {
                     localStorageService.set('username', username);
-                    localStorageService.set('authorizationData', res.data.token)
-                    console.log(res.data);
+                    localStorageService.set('authorizationData', res.data.token);
                     $location.path('homepage');
                     defer.resolve(res.data);
                 } else {
+                    console.log("didn't work!")
                     $location.path('loginPage');
                     defer.reject(res);
                 }
@@ -72,11 +71,9 @@
 
         function facebook() {
             var defer = $q.defer();
-
             facebookConnectPlugin.login(['public_profile', 'email'],
-                function(res) {
-                              
-                    localStorageService.set('authorizationData', JSON.stringify(res.authResponse.accessToken));
+                function(res) {        
+                    localStorageService.set('authorizationData', res.authResponse.accessToken);
                     $location.path('homepage');
                     defer.resolve(res);
                 },

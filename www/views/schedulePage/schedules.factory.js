@@ -13,7 +13,7 @@
             getSchedule: getSchedule
         };
         return service;
-
+        var authdata = localStorageService.get('authorizationData')
         ////////////////
 
         function getSchedule() {
@@ -22,10 +22,9 @@
         		method: 'GET',
         		url: apiUrl + 'api/schedules',
         	}).then(function(response) {
-                console.log(JSON.stringify(response.data));
         		defer.resolve(response.data);
         	},function(err) {
-        		console.log(JSON.stringify(err));
+        		console.log("schedules error" + JSON.stringify(err));
         		defer.resolve(err);
         	});
         	return defer.promise;

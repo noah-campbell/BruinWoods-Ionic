@@ -9,10 +9,10 @@ angular.module('app', ['ionic',
         'app.routes',
         'LocalStorageModule'
     ])
-    .value('apiUrl', 'http://localhost:3000/')
     .config(['$httpProvider', function($httpProvider) {
         $httpProvider.interceptors.push('authInterceptor');
     }])
+    .value('apiUrl', 'http://192.168.1.41:3000/')
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
 
@@ -33,4 +33,3 @@ angular.module('app', ['ionic',
         })
 
     })
-    
