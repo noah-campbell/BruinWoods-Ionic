@@ -5,14 +5,16 @@
         .module('app')
         .factory('authenticationService', authenticationService);
 
-    authenticationService.$inject = ['$http', '$q', 'apiUrl', '$rootScope', '$location'];
+    authenticationService.$inject = ['$http', '$q', 'apiUrl', '$location', 'localStorageService'];
 
     /* @ngInject */
-    function authenticationService($http, $q, apiUrl, $rootScope, $location) {
+    function authenticationService($http, $q, apiUrl, $location, localStorageService) {
         var service = {
             login: login,
             signup: signup,
-            facebook: facebook
+            facebook: facebook,
+            logout: logout,
+            init: init
         };
         return service;
 
@@ -26,13 +28,13 @@
                 url: apiUrl + 'auth/signup',
                 data: newUser
             }).then(function(res) {
-                console.log(res);
                 if (res.data.state == 'success') {
                     defer.resolve(res.data.user);
                 } else {
                     defer.reject(res);
                 }
             }, function(err) {
+                console.log(JSON.stringify(err))
                 defer.reject(err);
             });
             return defer.promise;
@@ -40,35 +42,40 @@
 
         function login(username, password) {
             /*logout();*/
+
             var defer = $q.defer();
+            var data = 'grant_type=password&username=' + username + '&password=' + password;
             $http({
                 method: 'POST',
                 url: apiUrl + 'auth/login',
-                data: {
-                    'username': username,
-                    'password': password
-                }
+                data: data,
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             }).then(function(res) {
+                console.log("reached!")
                 if (res.data.state == 'success') {
-                    $rootScope.authenticated = true;
-                    $rootScope.current_user = res.data.user.username;
-                    console.log($rootScope.current_user);
+                    localStorageService.set('username', username);
+                    localStorageService.set('authorizationData', res.data.token);
                     $location.path('homepage');
+                    defer.resolve(res.data);
                 } else {
+                    console.log("didn't work!")
                     $location.path('loginPage');
                     defer.reject(res);
                 }
-                return defer.promise;
+                
+            },function(err){
+                console.log("in Auth Service" + JSON.stringify(err));
             });
+            return defer.promise;
         }
 
         function facebook() {
             var defer = $q.defer();
-
             facebookConnectPlugin.login(['public_profile', 'email'],
-                function(response) {
-                    $rootScope.authenticated = true;
-                    defer.resolve(response);
+                function(res) {        
+                    localStorageService.set('authorizationData', res.authResponse.accessToken);
+                    $location.path('homepage');
+                    defer.resolve(res);
                 },
                 function(err) {
                     defer.reject(err);
@@ -79,6 +86,17 @@
         }
 
 
+        function logout() {
+            localStorageService.remove('authorizationData');
+            $location.path('login');
+        }
+
+        function init() {
+            var authData = localStorageService.get('authorizationData');
+            if (authData) {
+                $location.path('homePage');
+            }
+        }
 
     }
 })();

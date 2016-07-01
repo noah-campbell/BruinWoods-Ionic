@@ -5,10 +5,10 @@
         .module('app')
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['authenticationService', '$rootScope'];
+    LoginCtrl.$inject = ['authenticationService', '$rootScope', 'localStorageService'];
 
     /* @ngInject */
-    function LoginCtrl(authenticationService, $rootScope) {
+    function LoginCtrl(authenticationService, $rootScope, localStorageService) {
         var vm = this;
         vm.title = 'LoginCtrl';
         vm.login = login;
@@ -23,10 +23,13 @@
         }*/
 
         function login(username, password) {
+            /*localStorageService.remove('authorizationData');*/
         	authenticationService.login(username, password)
-        		.then(function(data) {
-        			
-        		});
+                .then(function(response) {
+                    console.log("login sucess" +JSON.stringify(response));
+                },function(err) {
+                    console.log("login error" + JSON.stringify(err));
+                })        		
         }
         function facebook() {
             authenticationService.facebook().then(
@@ -34,8 +37,6 @@
                     console.log(JSON.stringify(response));
                 },
                 function(err) {
-                    console.log('an error occured');
-                    console.log(JSON.stringify(err));
                 }
             );
         }
