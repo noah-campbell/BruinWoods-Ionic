@@ -64,6 +64,7 @@
                 }
                 
             },function(err){
+                defer.reject(err);
                 console.log("in Auth Service" + JSON.stringify(err));
             });
             return defer.promise;

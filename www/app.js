@@ -5,14 +5,14 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic',
+angular.module('app', ['ionic','ngInput',
         'app.routes',
         'LocalStorageModule'
     ])
     .config(['$httpProvider', function($httpProvider) {
         $httpProvider.interceptors.push('authInterceptor');
     }])
-    .value('apiUrl', 'http://192.168.1.41:3000/')
+    .value('apiUrl', 'http://192.168.1.42:3000/')
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
 

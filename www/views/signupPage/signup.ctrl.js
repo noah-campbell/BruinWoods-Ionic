@@ -5,14 +5,14 @@
         .module('app')
         .controller('SignupCtrl', SignupCtrl);
 
-    SignupCtrl.$inject = ['authenticationService', '$location'];
+    SignupCtrl.$inject = ['authenticationService', '$location', '$ionicPopup'];
 
     /* @ngInject */
-    function SignupCtrl(authenticationService, $location) {
+    function SignupCtrl(authenticationService, $location, $ionicPopup) {
         var vm = this;
         vm.title = 'SignupCtrl';
         vm.signup = signup;
-         vm.facebook = facebook;
+        vm.facebook = facebook;
 
 
 
@@ -25,12 +25,23 @@
                 return;
             }
             if (newUser.password !== newUser.confirmPassword) {
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Oops!',
+                    template: 'Passwords don\'t match, try again'
+                });
                 newUser.password = "";
                 newUser.confirmPassword = "";
+
                 return;
+
             }
             authenticationService.signup(user).
             then(function(res) {
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Success!',
+                    template: 'You have been successfully registered, please login with you new account'
+                });
+
                 console.log('account successfully created!');
                 $location.url('/login');
             }, function(err) {
