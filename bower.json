@@ -26,6 +26,7 @@
   ],
   "dependencies": {
     "angular-skycons": "^2.0.2",
-    "ng-input": "^0.0.8"
+    "ng-input": "^0.0.8",
+    "ng-pdfviewer": "^0.2.1"
   }
 }

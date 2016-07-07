@@ -1,75 +1,125 @@
 (function() {
-        'use strict';
+    'use strict';
 
-        angular
-            .module('app')
-            .controller('HomeCtrl', HomeCtrl);
+    angular
+        .module('app')
+        .controller('HomeCtrl', HomeCtrl);
 
-        HomeCtrl.$inject = ['weatherService', '$ionicPopup'];
+    HomeCtrl.$inject = ['weatherService', '$ionicPopup', '$ionicModal', '$scope', 'PDFViewerService', 'pdf'];
 
-        /* @ngInject */
+    function HomeCtrl(weatherService, $ionicPopup, $ionicModal, $scope, PDFViewerService, pdf) {
+        var vm = this;
+        vm.title = 'HomeCtrl';
+        ////
+        // $scope.pdfURL = "https://alumni.ucla.edu/wp-content/uploads/2015/05/map01.pdf";
 
-        function HomeCtrl(weatherService, $ionicPopup) {
-            var vm = this;
-            vm.title = 'HomeCtrl';
+        // $scope.instance = pdf.Instance("viewer");
 
-            // Show and hide on homepage
-            vm.toggleInfo = function() {
-                vm.info = !vm.info;
-                vm.schedule = false;
-                vm.social = false;
-            }
-            vm.toggleSchedule = function() {
-                vm.schedule = !vm.schedule;
-                vm.info = false;
-                vm.social = false;
-            }
+        $scope.nextPage = function() {
+            $scope.instance.nextPage();
+        };
 
-            vm.toggleSocial = function() {
-                vm.social = !vm.social;
-                vm.info = false;
-                vm.schedule = false;
-            }
+        $scope.prevPage = function() {
+            $scope.instance.prevPage();
+        };
 
-            // Welcome popup
+        $scope.gotoPage = function(page) {
+            $scope.instance.gotoPage(page);
+        };
 
-            vm.welcomeAlert = function() {
-                var alertPopup = $ionicPopup.alert({
-                    title: 'Welcome!',
-                    template: 'Here you can view the schedules and plan your day, access important information about the camp, or check us out on social media and view our photo stream!'
-                });
-            };
+        $scope.pageLoaded = function(curPage, totalPages) {
+            $scope.currentPage = curPage;
+            $scope.totalPages = totalPages;
+        };
 
-                // Additional weather info popup
-                vm.weatherPopup = function() {
-                    var alertPopup = $ionicPopup.alert({
-                        title: 'Weather',
-                        template: '<p>' + vm.weather.daily.summary + '</p> Current wind speed is <span> ' + Math.round(vm.weather.currently.windSpeed) + ' mph</span> <br> The chance of rain today is ' + vm.weather.currently.precipProbability + '%</span>'
-                    });
-                };
+        $scope.loadProgress = function(loaded, total, state) {
+            console.log('loaded =', loaded, 'total =', total, 'state =', state);
+        };
+        ////
 
-                // Getting weather function
-                var getWeather = function() {
-                    weatherService.getWeather().then(
-                        function(response) {
-                            vm.weather = response.data;
-                            // Rounding current temperature to whole number
-                            vm.temp = Math.round(vm.weather.currently.temperature);
-                            console.log(vm.weather);
+        $ionicModal.fromTemplateUrl('my-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            $scope.modal = modal;
+        });
+        $scope.openModal = function() {
+            $scope.modal.show();
+        };
+        $scope.closeModal = function() {
+            $scope.modal.hide();
+        };
+        // Cleanup the modal when we're done with it!
+        $scope.$on('$destroy', function() {
+            $scope.modal.remove();
+        });
+        // Execute action on hide modal
+        $scope.$on('modal.hidden', function() {
+            // Execute action
+        });
+        // Execute action on remove modal
+        $scope.$on('modal.removed', function() {
+            // Execute action
+        });
 
-                            // Current weather icon
-                            var skycons = new Skycons({ "color": "black" });
-                            skycons.add("weatherIcon", vm.weather.currently.icon);
+        // Show and hide on homepage
+        vm.toggleInfo = function() {
+            vm.info = !vm.info;
+            vm.schedule = false;
+            vm.social = false;
+        }
+        vm.toggleSchedule = function() {
+            vm.schedule = !vm.schedule;
+            vm.info = false;
+            vm.social = false;
+        }
 
-                            skycons.play();
-                        }
-                    )
+        vm.toggleSocial = function() {
+            vm.social = !vm.social;
+            vm.info = false;
+            vm.schedule = false;
+        }
+
+        // Welcome popup
+
+        vm.welcomeAlert = function() {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Welcome!',
+                template: 'Here you can view the schedules and plan your day, access important information about the camp, or check us out on social media and view our photo stream!'
+            });
+        };
+
+        // Additional weather info popup
+        vm.weatherPopup = function() {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Weather',
+                template: '<p>' + vm.weather.daily.summary + '</p> Current wind speed is <span> ' + Math.round(vm.weather.currently.windSpeed) + ' mph</span> <br> The chance of rain today is ' + vm.weather.currently.precipProbability + '%</span>'
+            });
+        };
+
+        // Getting weather function
+        var getWeather = function() {
+            weatherService.getWeather().then(
+                function(response) {
+                    vm.weather = response.data;
+                    // Rounding current temperature to whole number
+                    vm.temp = Math.round(vm.weather.currently.temperature);
+                    console.log(vm.weather);
+
+                    // Current weather icon
+                    var skycons = new Skycons({ "color": "black" });
+                    skycons.add("weatherIcon", vm.weather.currently.icon);
+
+                    skycons.play();
                 }
+            )
+        }
 
-                function activate() {
-                    getWeather();
-                }
-                activate();
+        << << << < HEAD
 
-            }
-        })();
+        function activate() {
+            getWeather();
+        }
+        activate();
+    }
+})();
