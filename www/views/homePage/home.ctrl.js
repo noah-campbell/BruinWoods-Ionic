@@ -5,13 +5,65 @@
         .module('app')
         .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = ['weatherService', '$ionicPopup'];
+    HomeCtrl.$inject = ['weatherService', '$ionicPopup', '$ionicModal', '$scope', 'PDFViewerService'];
+
 
     /* @ngInject */
 
-    function HomeCtrl(weatherService, $ionicPopup) {
+    function HomeCtrl(weatherService, $ionicPopup, $ionicModal, $scope, PDFViewerService, pdf) {
         var vm = this;
         vm.title = 'HomeCtrl';
+        ////
+        // $scope.pdfURL = "https://alumni.ucla.edu/wp-content/uploads/2015/05/map01.pdf";
+
+    // $scope.instance = pdf.Instance("viewer");
+
+    $scope.nextPage = function() {
+        $scope.instance.nextPage();
+    };
+
+    $scope.prevPage = function() {
+        $scope.instance.prevPage();
+    };
+
+    $scope.gotoPage = function(page) {
+        $scope.instance.gotoPage(page);
+    };
+
+    $scope.pageLoaded = function(curPage, totalPages) {
+        $scope.currentPage = curPage;
+        $scope.totalPages = totalPages;
+    };
+
+    $scope.loadProgress = function(loaded, total, state) {
+        console.log('loaded =', loaded, 'total =', total, 'state =', state);
+    };
+        ////
+
+        $ionicModal.fromTemplateUrl('my-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            $scope.modal = modal;
+        });
+        $scope.openModal = function() {
+            $scope.modal.show();
+        };
+        $scope.closeModal = function() {
+            $scope.modal.hide();
+        };
+        // Cleanup the modal when we're done with it!
+        $scope.$on('$destroy', function() {
+            $scope.modal.remove();
+        });
+        // Execute action on hide modal
+        $scope.$on('modal.hidden', function() {
+            // Execute action
+        });
+        // Execute action on remove modal
+        $scope.$on('modal.removed', function() {
+            // Execute action
+        });
 
         // Show and hide on homepage
         vm.toggleInfo = function() {
@@ -61,6 +113,5 @@
             getWeather();
         }
         activate();
-
     }
 })();
