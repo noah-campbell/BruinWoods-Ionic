@@ -167,4 +167,12 @@ button-bar {
     margin-right: 0px;
 }
 
+/*IMAGE VIEW STYLING*/
+ion-modal-view {
+    left: 0;
+}
 
+.highways {
+    width: 70%;
+    height: auto;
+}

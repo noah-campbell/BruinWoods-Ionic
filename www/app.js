@@ -7,12 +7,13 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic',
         'app.routes',
-        'LocalStorageModule'
+        'LocalStorageModule',
+        'ngPDFViewer'
     ])
     .config(['$httpProvider', function($httpProvider) {
         $httpProvider.interceptors.push('authInterceptor');
     }])
-    .value('apiUrl', 'http://192.168.1.41:3000/')
+    .value('apiUrl', 'http://localhost:3000/')
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
 
