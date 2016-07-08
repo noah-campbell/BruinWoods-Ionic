@@ -5,8 +5,7 @@
         .module('app')
         .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = ['weatherService', '$ionicPopup', '$ionicModal', '$scope'];
-
+    HomeCtrl.$inject = ['weatherService', '$ionicPopup', '$ionicModal'];
 
     /* @ngInject */
 
@@ -18,59 +17,7 @@
         vm.openInAppBrowser = function() {
             // Open in app browser
             var ref = window.open('https://docs.google.com/viewer?url=https://alumni.ucla.edu/wp-content/uploads/2015/05/map01.pdf&embedded=true', '_blank', 'location=no');
-
-        };
-        // $scope.pdfURL = "https://alumni.ucla.edu/wp-content/uploads/2015/05/map01.pdf";
-
-        // $scope.instance = pdf.Instance("viewer");
-
-        /* $scope.nextPage = function() {
-             $scope.instance.nextPage();
-         };
-
-         $scope.prevPage = function() {
-             $scope.instance.prevPage();
-         };
-
-         $scope.gotoPage = function(page) {
-             $scope.instance.gotoPage(page);
-         };
-
-         $scope.pageLoaded = function(curPage, totalPages) {
-             $scope.currentPage = curPage;
-             $scope.totalPages = totalPages;
-         };
-
-         $scope.loadProgress = function(loaded, total, state) {
-             console.log('loaded =', loaded, 'total =', total, 'state =', state);
-         };
-             ////
-
-             $ionicModal.fromTemplateUrl('my-modal.html', {
-                 scope: $scope,
-                 animation: 'slide-in-up'
-             }).then(function(modal) {
-                 $scope.modal = modal;
-             });
-             $scope.openModal = function() {
-                 $scope.modal.show();
-             };
-             $scope.closeModal = function() {
-                 $scope.modal.hide();
-             };
-             // Cleanup the modal when we're done with it!
-             $scope.$on('$destroy', function() {
-                 $scope.modal.remove();
-             });
-             // Execute action on hide modal
-             $scope.$on('modal.hidden', function() {
-                 // Execute action
-             });
-             // Execute action on remove modal
-             $scope.$on('modal.removed', function() {
-                 // Execute action
-             });*/
-
+        }    
         // Show and hide on homepage
         vm.toggleInfo = function() {
             vm.info = !vm.info;
@@ -88,6 +35,15 @@
             vm.info = false;
             vm.schedule = false;
         }
+
+        // Welcome popup
+
+        vm.welcomeAlert = function() {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Welcome!',
+                template: 'Here you can view the schedules and plan your day, access important information about the camp, or check us out on social media and view our photo stream!'
+            });
+        };
 
         // Additional weather info popup
         vm.weatherPopup = function() {

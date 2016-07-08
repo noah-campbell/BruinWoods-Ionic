@@ -2,18 +2,9 @@
     <ion-content padding="true" class="has-header">
         <form id="signup-form3" class="list ">
             <ion-list id="signup-list1" class=" ">
-                <label class="item item-input " id="signup-input3">
-                    <span class="input-label">Email</span>
-                    <input ng-model="newUser.username" type="text">
-                </label>
-                <label class="item item-input " id="signup-input4">
-                    <span class="input-label">Password</span>
-                    <input ng-model="newUser.password" type="password">
-                </label>
-                <label class="item item-input " id="signup-input5">
-                    <span class="input-label">Confirm Password</span>
-                    <input ng-model="newUser.confirmPassword" type="password">
-                </label>
+                <ng-input theme="nariko" label="Email" ng-model="newUser.username" type="text"></ng-input>
+                <ng-input theme="nariko" label="Password" ng-model="newUser.password" type="password"></ng-input>
+                <ng-input theme="nariko" label="Confirm Password" ng-model="newUser.confirmPassword" type="password"></ng-input>
             </ion-list>
             <a id="signup-button4" class=" button button-stable  button-block " ng-click="signup.signup(newUser)">Sign up</a>
         </form>
