@@ -17,8 +17,6 @@
 
         vm.openInAppBrowser = function() {
             // Open in app browser
-
-            /*window.open('https://docs.google.com/viewer?url=https://alumni.ucla.edu/wp-content/uploads/2015/05/map01.pdf&embedded=true', '_blank', 'location=yes');*/
             var ref = window.open('https://docs.google.com/viewer?url=https://alumni.ucla.edu/wp-content/uploads/2015/05/map01.pdf&embedded=true', '_blank', 'location=no');
 
         };
