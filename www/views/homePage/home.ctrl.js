@@ -14,9 +14,9 @@
         vm.title = 'HomeCtrl';
         ////
 
-        vm.openInAppBrowser = function() {
+        vm.openInAppBrowser = function(url) {
             // Open in app browser
-            var ref = window.open('https://docs.google.com/viewer?url=https://alumni.ucla.edu/wp-content/uploads/2015/05/map01.pdf&embedded=true', '_blank', 'location=no');
+            var ref = window.open("https://docs.google.com/viewer?url="+url+"&embedded=true', '_blank', 'location=no");
         }    
         // Show and hide on homepage
         vm.toggleInfo = function() {
