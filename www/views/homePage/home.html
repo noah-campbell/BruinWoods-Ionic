@@ -12,7 +12,10 @@
             </div>
             <div ng-show="home.schedule" id="flipped">
                 <a ng-click="home.toggleSchedule()" class="button button-full scheduleHeader">SCHEDULE</a>
-                <div id="scheduleBar">
+                <div id="scheduleBar" ng-repeat="schedule in home.schedules">
+                    <button class="button button-full" ng-click="home.openInAppBrowser(schedule.url)">
+                        {{schedule.name}}
+                    </button>
                 </div>
             </div>
         </div>
@@ -20,16 +23,16 @@
             <a ng-click="home.toggleInfo()" ng-hide="home.info" id="info" class="button button-large button-full">INFORMATION</a>
             <div ng-show="home.info" id="flipped1">
                 <a ng-click="home.toggleInfo()" class="button button-full infoHeader">INFORMATION</a>
-                <div class="button-bar" id="informationBar">
-                    <button class="button button-full" id="map1" ng-click="home.openInAppBrowser('https://alumni.ucla.edu/wp-content/uploads/2015/05/map01.pdf')">
-                        Overview Map
+                <div class="button-bar" id="informationBar" ng-repeat="info in home.infos">
+                    <button class="button button-full" ng-click="home.openInAppBrowser(info.url)">
+                        {{info.name}}
                     </button>
-                    <button class="button button-full" id="map2" ng-click="home.openInAppBrowser('https://alumni.ucla.edu/wp-content/uploads/2015/05/map03.pdf')">
+                    <!-- <button class="button button-full" id="map2" ng-click="home.openInAppBrowser('https://alumni.ucla.edu/wp-content/uploads/2015/05/map03.pdf')">
                         Freeways & Highways
                     </button>
                     <button class="button button-full" id="map3" ng-click="home.openInAppBrowser('https://alumni.ucla.edu/wp-content/uploads/2015/05/map04.pdf')">
                         Lake Arrowhead
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </div>
