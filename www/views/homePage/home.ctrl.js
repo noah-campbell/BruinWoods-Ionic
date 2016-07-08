@@ -5,20 +5,25 @@
         .module('app')
         .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = ['weatherService', '$ionicPopup', '$ionicModal'];
+    HomeCtrl.$inject = ['weatherService', '$ionicPopup', '$ionicModal', 'infoService'];
 
     /* @ngInject */
 
-    function HomeCtrl(weatherService, $ionicPopup, $ionicModal, $scope) {
+    function HomeCtrl(weatherService, $ionicPopup, $ionicModal, $scope, infoService) {
         var vm = this;
         vm.title = 'HomeCtrl';
         ////
+        function activate() {
+            getWeather();
+            getInfos();
+        }
+        activate();
 
         vm.openInAppBrowser = function() {
-            // Open in app browser
-            var ref = window.open('https://docs.google.com/viewer?url=https://alumni.ucla.edu/wp-content/uploads/2015/05/map01.pdf&embedded=true', '_blank', 'location=no');
-        }    
-        // Show and hide on homepage
+                // Open in app browser
+                var ref = window.open('https://docs.google.com/viewer?url=https://alumni.ucla.edu/wp-content/uploads/2015/05/map01.pdf&embedded=true', '_blank', 'location=no');
+            }
+            // Show and hide on homepage
         vm.toggleInfo = function() {
             vm.info = !vm.info;
             vm.schedule = false;
@@ -68,12 +73,15 @@
 
                     skycons.play();
                 }
-            )
+            );
         }
 
-        function activate() {
-            getWeather();
+        function getInfos() {
+            infoService.getInfos().then(function(response) {
+                vm.infos = response.data;
+                console.log(response.data);
+            })
         }
-        activate();
+
     }
 })();
