@@ -21,9 +21,9 @@
             <div ng-show="home.info" id="flipped1">
                 <a ng-click="home.toggleInfo()" class="button button-full infoHeader">INFORMATION</a>
                 <div class="containter" id="informationBar">
-                    <a class="item" href="#" onclick="window.open('https://alumni.ucla.edu/wp-content/uploads/2015/05/map01.pdf', '_system', 'location=yes'); return false;">
-                Open a Map!
-            </a>
+                    <button class="button button-full" ng-click="home.openInAppBrowser()">
+                        Open In App Browser
+                    </button>
                     <!-- <script id="my-modal.html" type="text/ng-template">
                         <ion-modal-view>
                             <ion-header-bar>
