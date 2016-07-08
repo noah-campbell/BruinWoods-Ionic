@@ -5,14 +5,19 @@
         .module('app')
         .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = ['weatherService', '$ionicPopup', '$ionicModal'];
+    HomeCtrl.$inject = ['weatherService', '$ionicPopup', '$ionicModal', 'infoService'];
 
     /* @ngInject */
 
-    function HomeCtrl(weatherService, $ionicPopup, $ionicModal, $scope) {
+    function HomeCtrl(weatherService, $ionicPopup, $ionicModal, $scope, infoService) {
         var vm = this;
         vm.title = 'HomeCtrl';
         ////
+        function activate() {
+            getWeather();
+            getInfos();
+        }
+        activate();
 
         vm.openInAppBrowser = function(url) {
             // Open in app browser
@@ -68,12 +73,15 @@
 
                     skycons.play();
                 }
-            )
+            );
         }
 
-        function activate() {
-            getWeather();
+        function getInfos() {
+            infoService.getInfos().then(function(response) {
+                vm.infos = response.data;
+                console.log(response.data);
+            })
         }
-        activate();
+
     }
 })();
