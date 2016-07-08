@@ -20,11 +20,16 @@
             <a ng-click="home.toggleInfo()" ng-hide="home.info" id="info" class="button button-large button-full">INFORMATION</a>
             <div ng-show="home.info" id="flipped1">
                 <a ng-click="home.toggleInfo()" class="button button-full infoHeader">INFORMATION</a>
-                <div class="containter" id="informationBar">
-                    <button class="button button-full" ng-click="home.openInAppBrowser()">
-                        Open In App Browser
+                <div class="button-bar" id="informationBar">
+                    <button class="button button-full" id="map1" ng-click="home.openInAppBrowser('https://alumni.ucla.edu/wp-content/uploads/2015/05/map01.pdf')">
+                        Overview Map
                     </button>
-                   
+                    <button class="button button-full" id="map2" ng-click="home.openInAppBrowser('https://alumni.ucla.edu/wp-content/uploads/2015/05/map03.pdf')">
+                        Freeways & Highways
+                    </button>
+                    <button class="button button-full" id="map3" ng-click="home.openInAppBrowser('https://alumni.ucla.edu/wp-content/uploads/2015/05/map04.pdf')">
+                        Lake Arrowhead
+                    </button>
                 </div>
             </div>
         </div>
@@ -35,20 +40,18 @@
             <div ng-show="home.social" class="container" id="flipped">
                 <a ng-click="home.toggleSocial()" class=" button button-full socialHeader">SOCIAL & PICTURES</a>
                 <div class="row" id="socialBar">
-                    <div id="facebook">
+                    <div id="facebook" class="col">
                         <a href="#" onclick="window.open('https://www.facebook.com/uclabruinwoods/?fref=nf', '_system', 'location=yes'); return false;">
-                            <img src="img/facebook.png" class="row-no-padding" width="80%" height="auto" style="display: inline-block; margin: 0px; padding: 0px">
+                            <a class="button button-icon icon ion-social-facebook social"></a>
                         </a>
                     </div>
-                    <div id="instagram">
-                        <a href="#" onclick="window.open('https://www.instagram.com/bruinwoods/', '_system', 'location=yes'); return false;">
-                            <div>
-                                <img src="img/instagram.png" class="row-no-padding" width="210%" height="auto" style="display: inline-block">
-                            </div>
+                    <div id="instagram" class="col">
+                        <a href="#" onclick="window.open('https://www.instagram.com/uclaalumni/', '_system', 'location=yes'); return false;">
+                            <a class="button button-icon icon ion-social-instagram social"></a>
                         </a>
                     </div>
-                    <div id="gallery">
-                        <img src="img/gallery.png" class="row-no-padding" width="100%" height="auto" style="display: inline-block">
+                    <div id="gallery" class="col">
+                        <a class="button button-icon icon ion-android-image social"></a>
                     </div>
                 </div>
             </div>

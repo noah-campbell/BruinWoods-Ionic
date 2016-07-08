@@ -1,4 +1,5 @@
 /* STYLE FOR TOP WEATHER BAR */
+
 #weatherBar {
     margin-bottom: 10px;
 }
@@ -8,18 +9,21 @@
     margin-bottom: 0;
     margin-left: 10vw;
 }
+
 #weatherSummary {
     width: 100%;
     margin-top: 5vw;
     margin-bottom: 0;
     margin-left: 5vw;
 }
+
 #weatherInfo {
     position: center;
     margin-left: 2vw;
     margin-top: 0;
     margin-bottom: 0;
 }
+
 #weatherIcon {
     margin-right: 3vw;
 }
@@ -31,6 +35,7 @@
 
 
 /*STYLING FOR THE HOMEPAGE SECTIONS*/
+
 #schedule,
 #info,
 #social {
@@ -42,6 +47,27 @@
     font-size: 12vw;
     padding-top: 15%;
     color: white;
+}
+
+#social {
+    font-family: sans-serif;
+    padding: 8%;
+    background-color: rgb(33, 146, 249);
+    font-size: 12vw;
+    color: white;
+    bottom: 10px;
+}
+
+#socialHeader {
+    font-family: sans-serif;
+    background-color: rgb(33, 146, 249);
+    font-size: 6vw;
+    color: white;
+    padding-top: 5%;
+    font-weight: 900;
+    color: white;
+    margin: 2px;
+    left: -10px;
 }
 
 #schedule {
@@ -91,46 +117,27 @@ button-bar {
 
 
 /*STYLING FOR THE LISTED CONTENTS IN HOME PAGE*/
-#social {
-    font-family: sans-serif;
-    padding: 8%;
-    background-color: rgb(33, 146, 249);
-    font-size: 12vw;
-    color: white;
-    bottom: 10px;
+
+#map1,
+#map2,
+#map3 {
+    color: black;
+    font-weight: 300;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 180%;
 }
 
-#socialHeader {
-    font-family: sans-serif;
-    background-color: rgb(33, 146, 249);
-    font-size: 6vw;
-    color: white;
-    padding-top: 5%;
-    font-weight: 900;
-    color: white;
-    margin: 2px;
-    left: -10px;
+#map1 {
+    background-color: #ffe8b1;
 }
 
-#listItemSchedule {
-    padding-top: 10px;
-    font-size: 19px;
-    height: 65px;
+#map2 {
+    background-color: #ffedc4;
 }
 
-#listItemInfo1 {
-    font-size: 20px;
-    height: 50px;
-}
-
-#listItemInfo2 {
-    font-size: 15px;
-    height: 50px;
-}
-
-#listItemInfo3 {
-    font-size: 15px;
-    height: 50px;
+#map3 {
+    background-color: #fff3d8;
 }
 
 #weather {
@@ -138,41 +145,14 @@ button-bar {
     border: none;
 }
 
-#listItemSchedule,
-#listItemInfo1,
-#listItemInfo2,
-#listItemInfo3 {
-    color: black;
-    font-weight: 200px;
-    margin: 0px;
-    border: white solid 1px;
-    border-radius: 6px;
-    left: -10px;
-    text-align: center;
-}
-
 #topTenList {
     margin-bottom: 20px;
 }
 
-#facebook {
-    margin-right: 40px;
-}
-
-#instagram {
-    margin-right: 100px;
-}
-
+#facebook,
+#instagram,
 #gallery {
-    margin-right: 0px;
-}
-
-/*IMAGE VIEW STYLING*/
-ion-modal-view {
-    left: 0;
-}
-
-.highways {
-    width: 70%;
-    height: auto;
+    height: 40%;
+    width: auto;
+    margin-left: 25px;
 }
