@@ -1,19 +1,6 @@
-<!-- 
-    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
-    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script> -->
 <ion-pane>
     <ion-header-bar class="bar-dark" style="background-color:#009d97">
-        <h1 class="title">Beautiful Agenda</h1>
     </ion-header-bar>
-    <!-- <div id="gridHeader" class="grid-header" ng-style="{'overflow': 'false', 'width' : (200 * rooms.length + 60) + 'px', 'left':'-'+timerleft}">
-        <div class="grid-header-clock" style="left: 0px;">
-        </div>
-        <div class="grid-header-labels" ng-repeat="room in schedule.rooms">
-            <div class="grid-header-label">{{room.name}}
-                <div class="grid-header-label-divider"></div>
-            </div>
-        </div>
-         </div> -->
     <ion-content scroll="true" direction="xy" has-bouncing="false" on-scroll="schedule.gotScrolled()">
         <div id="gridBody" class="grid-body ui-block">
             <div style="position:relative" ng-repeat="day in schedule.days">
