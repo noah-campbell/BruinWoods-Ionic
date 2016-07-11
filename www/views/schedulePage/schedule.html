@@ -5,7 +5,7 @@
     <ion-header-bar class="bar-dark" style="background-color:#009d97">
         <h1 class="title">Beautiful Agenda</h1>
     </ion-header-bar>
-     <!-- <div id="gridHeader" class="grid-header" ng-style="{'overflow': 'false', 'width' : (200 * rooms.length + 60) + 'px', 'left':'-'+timerleft}">
+    <!-- <div id="gridHeader" class="grid-header" ng-style="{'overflow': 'false', 'width' : (200 * rooms.length + 60) + 'px', 'left':'-'+timerleft}">
         <div class="grid-header-clock" style="left: 0px;">
         </div>
         <div class="grid-header-labels" ng-repeat="room in schedule.rooms">
@@ -18,7 +18,6 @@
         <div id="gridBody" class="grid-body ui-block">
             <div style="position:relative" ng-repeat="day in schedule.days">
                 <div id="gridTimesHolder" class="grid-times-holder" ng-style="{'left':timerleft}">
-                    <div class="day-label">{{day.day.substr(0, 3)}}</div>
                     <div class="grid-times" ng-repeat="hour in schedule.hours">
                         <div class="grid-time-label">{{hour}}</div>
                     </div>
