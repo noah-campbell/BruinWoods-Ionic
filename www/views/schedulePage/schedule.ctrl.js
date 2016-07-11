@@ -5,21 +5,29 @@
         .module('app')
         .controller('ScheduleCtrl', ScheduleCtrl);
 
-    ScheduleCtrl.$inject = ['$ionicScrollDelegate', 'scheduleFactory'];
+    ScheduleCtrl.$inject = ['$ionicScrollDelegate', 'scheduleFactory', '$scope'];
 
     /* @ngInject */
-    function ScheduleCtrl($ionicScrollDelegate, scheduleFactory) {
+    function ScheduleCtrl($ionicScrollDelegate, scheduleFactory, $scope) {
         var vm = this;
         var startHour = 6;
         var endHour = 23;
         var usehalfhour = true;
 
         vm.timerleft = '0px';
-
         vm.hours = getHours();
         vm.categories = getRooms();
+        vm.events = [];
         vm.days = getDays();
-        vm.events = getEvents();
+        vm.rooms = getRooms();
+
+
+        function activate() {
+
+            getEvents();
+        }
+        activate();
+
 
         function getHours() {
             var hours = [];
@@ -34,14 +42,14 @@
 
 
         function getRooms() {
-            var categories = [];
-            categories.push({ id: 1, name: 'Morpheues' });
-            categories.push({ id: 2, name: 'Neo' });
-            categories.push({ id: 3, name: 'Trinity' });
-            categories.push({ id: 4, name: 'Mouse' });
+            var tmp = [];
+            tmp.push({ id: 1, name: 'Morpheues' });
+            tmp.push({ id: 2, name: 'Neo' });
+            tmp.push({ id: 3, name: 'Trinity' });
+            tmp.push({ id: 4, name: 'Mouse' });
 
-            return categories;
-        }
+            return tmp;
+        };
 
         function getDays() {
             var tmp = [];
@@ -80,7 +88,7 @@
 
         vm.gotScrolled = function() {
             vm.timerleft = $ionicScrollDelegate.getScrollPosition().left + 'px';
-            vm.$apply();
+            $scope.$apply();
         };
 
         function getEvents() {
@@ -92,19 +100,36 @@
             scheduleFactory.getSchedule()
                 .then(function(schedule) {
                     vm.schedule = schedule;
-                    console.log("schedules" + JSON.stringify(schedule));
-                 /*   vm.schedule.sort(function(a, b) {
-                        return new Date(a.startTime).getDate() - new Date(b.startTime).getDate();
+                    vm.eventList = schedule[0].eventIds;
+                    console.log(vm.eventList);
+                    console.log("schedules" + JSON.stringify(schedule[0]));
+                    vm.schedule[0].eventIds.forEach(function(event) {
+                        vm.events.push({
+                            id: event._id,
+                            eventname: event.name,
+                            /*starthour: event.startTime.getHours() + ':' + event.endTime.getMiunutes,*/
+                            room: event.location,
+                            description: event.description,
+                            left: (60 + 0 * 120) + 'px',
+                            top: (23 + 1 * 100) + 'px',
+                            height: (1.5 * 100) + 'px',
+                            color: 'rgba(0,157,151,0.75)',
+                            dateformat: new Date(event.startTime).toLocaleDateString()
+                        });
                     });
-                    for (i = 0; i < vm.schedule.length; i++) {
-                        if (i === 0) {
-                            dayEvents.push(schedule[i]);
-                        } else if (schedule[i].startTime.getDate() == dayEvents[0].startTime.getDate()) {
-                            dayEvents.push(schedule[i]);
-                        } else if ((i == (vm.schedule.length - 1)) || (schedule[i].startTime.getDate() != dayEvents[0].startTime.getDate()))
-                            events.push(dayEvents);
-                        dayEvents = [schedule[i]];
-                    };*/
+                    console.log(vm.events);
+                    /*   vm.schedule.sort(function(a, b) {
+                           return new Date(a.startTime).getDate() - new Date(b.startTime).getDate();
+                       });
+                       for (i = 0; i < vm.schedule.length; i++) {
+                           if (i === 0) {
+                               dayEvents.push(schedule[i]);
+                           } else if (schedule[i].startTime.getDate() == dayEvents[0].startTime.getDate()) {
+                               dayEvents.push(schedule[i]);
+                           } else if ((i == (vm.schedule.length - 1)) || (schedule[i].startTime.getDate() != dayEvents[0].startTime.getDate()))
+                               events.push(dayEvents);
+                           dayEvents = [schedule[i]];
+                       };*/
                 })
                 /*console.log(events);
             return events;*/

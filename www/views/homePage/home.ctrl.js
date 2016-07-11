@@ -5,11 +5,11 @@
         .module('app')
         .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = ['weatherService', 'infoService'];
+    HomeCtrl.$inject = ['weatherService', 'infoService', '$ionicPopup'];
 
     /* @ngInject */
 
-    function HomeCtrl(weatherService, infoService ) {
+    function HomeCtrl(weatherService, infoService, $ionicPopup ) {
         var vm = this;
         vm.title = 'HomeCtrl';
         vm.infos = [];
