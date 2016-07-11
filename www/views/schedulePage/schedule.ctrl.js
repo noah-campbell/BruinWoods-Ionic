@@ -42,14 +42,17 @@
 
 
         function getRooms() {
+            var rooms = ['Library', 'Pool'];
+            var margin = 16;
+
             var tmp = [];
-            tmp.push({ id: 1, name: 'Morpheues' });
-            tmp.push({ id: 2, name: 'Neo' });
-            tmp.push({ id: 3, name: 'Trinity' });
-            tmp.push({ id: 4, name: 'Mouse' });
+            for (var i = 0; i < rooms.length; i++) {
+                tmp.push({ id: (i + 1), name: rooms[i], left: margin + '%' });
+                margin += 32;
+            }
 
             return tmp;
-        };
+        }
 
         function getDays() {
             var tmp = [];
@@ -100,43 +103,38 @@
             scheduleFactory.getSchedule()
                 .then(function(schedule) {
                     vm.schedule = schedule;
-                    vm.eventList = schedule[0].eventIds;
-                    console.log(vm.eventList);
                     console.log("schedules" + JSON.stringify(schedule[0]));
                     vm.schedule[0].eventIds.forEach(function(event) {
-                        vm.events.push({
+                        var Event = {
                             id: event._id,
                             eventname: event.name,
-                            /*starthour: event.startTime.getHours() + ':' + event.endTime.getMiunutes,*/
+                            starthour: new Date(event.startTime).getHours() + ':' + new Date(event.startTime).getMinutes(),
+                            endhour: new Date(event.endTime).getHours() + ':' + new Date(event.endTime).getMinutes(),
                             room: event.location,
                             description: event.description,
-                            left: (60 + 0 * 120) + 'px',
-                            top: (23 + 1 * 100) + 'px',
-                            height: (1.5 * 100) + 'px',
-                            color: 'rgba(0,157,151,0.75)',
-                            dateformat: new Date(event.startTime).toLocaleDateString()
-                        });
+                            dateformat: new Date(event.startTime).toLocaleDateString(),
+                        }
+
+                        for (var i = 0; i < vm.rooms.length; i++) {
+                            if (event.location == vm.rooms[i].name) {
+                                console.log(vm.rooms[i].name);
+                                Event.left = vm.rooms[i].left;
+                                //Event.color = vm.rooms[i].color;
+                            }
+                        }
+
+                        Event.height = ((new Date(event.endTime) - new Date(event.startTime)) / 36000) + 'px';
+                        var hours = Math.floor(new Date(event.startTime).getHours() - 6) * 2;
+                        var minutes = (Math.floor(new Date(event.startTime).getMinutes()) / 30);
+                        var intervals = hours + minutes;
+                        Event.top = (23 + (intervals * 50)) + 'px';
+
+                        vm.events.push(Event);
                     });
                     console.log(vm.events);
-                    /*   vm.schedule.sort(function(a, b) {
-                           return new Date(a.startTime).getDate() - new Date(b.startTime).getDate();
-                       });
-                       for (i = 0; i < vm.schedule.length; i++) {
-                           if (i === 0) {
-                               dayEvents.push(schedule[i]);
-                           } else if (schedule[i].startTime.getDate() == dayEvents[0].startTime.getDate()) {
-                               dayEvents.push(schedule[i]);
-                           } else if ((i == (vm.schedule.length - 1)) || (schedule[i].startTime.getDate() != dayEvents[0].startTime.getDate()))
-                               events.push(dayEvents);
-                           dayEvents = [schedule[i]];
-                       };*/
-                })
-                /*console.log(events);
-            return events;*/
-        };
 
-        //forEach Lopp create an array per day.
-        //
+                })
+        };
 
         /*tmp.push({ eventname: 'Presentation 1', starthour: '08:00', endhour: '09:30', eventtype: 'ion-mic-c', room: 'Morpheus', left: (60 + 0 * 120) + 'px', top: (23 + 1 * 100) + 'px', height: (1.5 * 100) + 'px', color: 'rgba(0,157,151,0.75)', dateformat: date1.toLocaleDateString() });
         tmp.push({ eventname: 'Coffee Break', starthour: '09:30', endhour: '10:00', eventtype: 'ion-coffee', room: 'Morpheus', left: (60 + 0 * 120) + 'px', top: (23 + 2.5 * 100) + 'px', height: (0.5 * 100) + 'px', color: 'rgba(255,169,0,0.75)', dateformat: date1.toLocaleDateString() });
