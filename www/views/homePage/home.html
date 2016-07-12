@@ -1,22 +1,25 @@
 <ion-view title="" id="homepage" style="background-color:#FFFFFF;" class=" " ng-init="home.welcomeAlert()">
     <ion-content padding="true" class="has-header">
-        <!-- <a ui-sref="contact" id="home-button24" style="font-weight:lighter;border-radius:20px 20px 20px 20px;" class=" button button-stable  button-icon icon-right ion-android-settings "></a> -->
-        <div class="row" id="weatherBar" ng-click="home.weatherPopup()">
-            <canvas id="weatherIcon" width="70dp" height="70dp"></canvas>
-            <h3 id="weatherSummary">{{home.weather.currently.summary}}</h3>
-            <h2 id="weatherTemp">{{home.temp}}°</h2>
-        </div>
+        <ion-card>
+            <div class="row" id="weatherBar" ng-click="home.weatherPopup()">
+                <canvas id="weatherIcon" width="70dp" height="70dp"></canvas>
+                <h3 id="weatherSummary">{{home.weather.currently.summary}}</h3>
+                <h2 id="weatherTemp">{{home.temp}}°</h2>
+            </div>
+        </ion-card>
         <div>
             <div id="miniHeader">
                 <a ng-click="home.toggleSchedule()" ng-hide="home.schedule" id="schedule" class=" button button-large button-full ">SCHEDULE</a>
             </div>
             <div ng-show="home.schedule" id="flipped">
                 <a ng-click="home.toggleSchedule()" class="button button-full scheduleHeader">SCHEDULE</a>
-                <div id="scheduleBar" ng-repeat="schedule in home.schedules">
-                    <button class="button button-full" ng-click="home.openInAppBrowser(schedule.url)">
-                        {{schedule.name}}
-                    </button>
-                    <a ui-sref="schedule">Schedule Page</a>
+                <div class="row">
+                    <div class="col" ng-repeat="schedule in home.schedules">
+                        <button class="button button-full" id="scheduleItems" ng-click="home.openInAppBrowser(schedule.url)">
+                            {{schedule.name}}
+                        </button>
+                        <a ui-sref="schedule">Schedule Page</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -24,16 +27,12 @@
             <a ng-click="home.toggleInfo()" ng-hide="home.info" id="info" class="button button-large button-full">INFORMATION</a>
             <div ng-show="home.info" id="flipped1">
                 <a ng-click="home.toggleInfo()" class="button button-full infoHeader">INFORMATION</a>
-                <div class="button-bar" id="informationBar" ng-repeat="info in home.infos">
-                    <button class="button button-full" ng-click="home.openInAppBrowser(info.url)">
-                        {{info.name}}
-                    </button>
-                    <!-- <button class="button button-full" id="map2" ng-click="home.openInAppBrowser('https://alumni.ucla.edu/wp-content/uploads/2015/05/map03.pdf')">
-                        Freeways & Highways
-                    </button>
-                    <button class="button button-full" id="map3" ng-click="home.openInAppBrowser('https://alumni.ucla.edu/wp-content/uploads/2015/05/map04.pdf')">
-                        Lake Arrowhead
-                    </button> -->
+                <div class="row">
+                    <div class="col" ng-repeat="info in home.infos">
+                        <button class="button button-full" id="infoItems" ng-click="home.openInAppBrowser(info.url)">
+                            {{info.name}}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,14 +44,10 @@
                 <a ng-click="home.toggleSocial()" class=" button button-full socialHeader">SOCIAL & PICTURES</a>
                 <div class="row" id="socialBar">
                     <div id="facebook" class="col">
-                        <a href="#" onclick="window.open('https://www.facebook.com/uclabruinwoods/?fref=nf', '_system', 'location=yes'); return false;">
-                            <a class="button button-icon icon ion-social-facebook social"></a>
-                        </a>
+                        <a class="button button-icon icon ion-social-facebook social" href="#" onclick="window.open('https://www.facebook.com/uclabruinwoods/?fref=nf', '_system', 'location=yes'); return false;"></a>
                     </div>
                     <div id="instagram" class="col">
-                        <a href="#" onclick="window.open('https://www.instagram.com/uclaalumni/', '_system', 'location=yes'); return false;">
-                            <a class="button button-icon icon ion-social-instagram social"></a>
-                        </a>
+                        <a class="button button-icon icon ion-social-instagram social" href="#" onclick="window.open('https://www.instagram.com/uclaalumni/', '_system', 'location=yes'); return false;"></a>
                     </div>
                     <div id="gallery" class="col">
                         <a class="button button-icon icon ion-android-image social"></a>

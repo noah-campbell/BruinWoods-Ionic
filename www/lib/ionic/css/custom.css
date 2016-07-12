@@ -118,26 +118,22 @@ button-bar {
 
 /*STYLING FOR THE LISTED CONTENTS IN HOME PAGE*/
 
-#map1,
-#map2,
-#map3 {
+#infoItems {
     color: black;
     font-weight: 300;
+    height: 80px;
     word-wrap: break-word;
     white-space: normal;
-    line-height: 180%;
+    line-height: 150%;
 }
 
-#map1 {
-    background-color: #ffe8b1;
-}
-
-#map2 {
-    background-color: #ffedc4;
-}
-
-#map3 {
-    background-color: #fff3d8;
+#scheduleItems {
+    color: black;
+    font-weight: 300;
+    height: 40px;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 150%;
 }
 
 #weather {
@@ -152,7 +148,5 @@ button-bar {
 #facebook,
 #instagram,
 #gallery {
-    height: 40%;
-    width: auto;
-    margin-left: 25px;
+    margin-left: 10%;
 }
