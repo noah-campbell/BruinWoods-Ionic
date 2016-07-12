@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic','ngInput',
         'app.routes',
-        'LocalStorageModule'
+        'LocalStorageModule',
     ])
     .config(['$httpProvider', function($httpProvider) {
         $httpProvider.interceptors.push('authInterceptor');
