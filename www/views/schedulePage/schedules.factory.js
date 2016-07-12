@@ -10,7 +10,8 @@
     /* @ngInject */
     function scheduleFactory($http, $q, apiUrl) {
         var service = {
-            getSchedule: getSchedule
+            getSchedule: getSchedule,
+            saveEvent: saveEvent
         };
         return service;
         var authdata = localStorageService.get('authorizationData')
@@ -28,6 +29,18 @@
         		defer.resolve(err);
         	});
         	return defer.promise;
+        }
+        function saveEvent(id) {
+            var defer = $q.defer();
+            $http({
+                method: 'PUT',
+                url: apiUrl + 'api/users/' + id,
+            }).then(function(response){
+                defer.resolve(response.data);
+            },function(err){
+                defer.reject(err)
+            })
+            return defer.promise;
         }
     }
 })();

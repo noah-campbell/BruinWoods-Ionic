@@ -12,8 +12,8 @@
                 <div class="grid-sessions" ng-style="{'height' : (50 * hours.length + 24) + 'px'}">
                     <div class="grid-sessions-day" ng-style="{'overflow': 'true', 'width' : (130 * schedule.rooms.length + 60) + 'px'}">
                         <div ng-repeat="event in schedule.events| filter:{ dateformat: day.dateformat}">
-                            <div class="grid-session-cell" ng-style="{'top':event.top, 'left':event.left, 'height':event.height, 'background-color':event.color}">
-                                <!-- <i class="icon  grid-session-icon" ng-class="event.eventtype"></i> -->
+                            <div class="grid-session-cell" ng-click="schedule.popup(event)" ng-style="{'top':event.top, 'left':event.left, 'height':event.height, 'background-color':event.color}">
+                                
                                 <div class="grid-session-title">{{event.eventname}}</div>
                                 <div class="grid-session-time">{{event.starthour}}-{{event.endhour}}</div>
                             </div>
