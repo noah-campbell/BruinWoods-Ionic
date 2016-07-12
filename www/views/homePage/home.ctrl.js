@@ -5,14 +5,21 @@
         .module('app')
         .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = ['weatherService', '$ionicPopup', '$ionicModal'];
+    HomeCtrl.$inject = ['weatherService', 'infoService', '$ionicPopup'];
 
     /* @ngInject */
 
-    function HomeCtrl(weatherService, $ionicPopup, $ionicModal, $scope) {
+    function HomeCtrl(weatherService, infoService, $ionicPopup ) {
         var vm = this;
         vm.title = 'HomeCtrl';
+        vm.infos = [];
+        vm.schedules = [];
         ////
+        function activate() {
+            getWeather();
+            getInfos();
+        };
+        activate();
 
         vm.openInAppBrowser = function(url) {
             // Open in app browser
@@ -54,7 +61,7 @@
         };
 
         // Getting weather function
-        var getWeather = function() {
+        function getWeather() {
             weatherService.getWeather().then(
                 function(response) {
                     vm.weather = response.data;
@@ -68,12 +75,21 @@
 
                     skycons.play();
                 }
-            )
+            );
         }
 
-        function activate() {
-            getWeather();
+        function getInfos() {
+            infoService.getInfos().then(function(response) {
+                response.data.forEach(function(info){
+                    if(info.type == "schedule") {
+                        vm.schedules.push(info);
+                    }else {
+                        vm.infos.push(info);
+                    }
+                })
+                console.log(response.data);
+            });
         }
-        activate();
+
     }
 })();
