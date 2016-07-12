@@ -20,7 +20,7 @@
         	var defer = $q.defer();
         	$http({
         		method: 'GET',
-        		url: apiUrl + '/api/users/events'
+        		url: apiUrl + 'api/users/events'
         	}).then(function(response) {
         		defer.resolve(response);
         	}, function(err) {

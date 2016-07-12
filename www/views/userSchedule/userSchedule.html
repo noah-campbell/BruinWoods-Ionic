@@ -1,0 +1,21 @@
+<ion-header-bar class="bar-stable">
+    <h1 class="title">Service Provider Details</h1>
+</ion-header-bar>
+<ion-content>
+    <div class="row header">
+        <div class="col">Time</div>
+        <div class="col">Name</div>
+        <div class="col">Location</div>
+        <div class="col">Description</div>
+        <!-- <div class="col"></div> -->
+    </div>
+    <div class="row" ng-repeat="event in user.events | orderBy:event.startTime">
+        <div class="col">{{event.date}}<br/>{{event.startHour}} - {{event.endHour}}</div>
+        <div class="col">{{event.name}}</div>
+        <div class="col">{{event.location}}</div>
+        <div class="col">{{event.description}}</div>
+        <!-- <div class="col">
+            <button class="button" ng-click="ctrl.add($index)">Add</button>
+        </div> -->
+    </div>
+</ion-content>
