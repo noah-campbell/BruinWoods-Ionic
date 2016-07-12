@@ -29,7 +29,7 @@ angular.module('app.routes', [])
         templateUrl: 'views/schedulePage/schedule.html',
         controller: 'ScheduleCtrl as schedule'
     })
-
+/*
     .state('info', {
         url: '/info',
         templateUrl: 'views/infoPage/info.html',
@@ -41,11 +41,11 @@ angular.module('app.routes', [])
         templateUrl: 'views/socialPage/social.html',
         controller: 'SocialCtrl'
     })
-
-    .state('contact', {
-        url: '/contact',
-        templateUrl: 'views/contactPage/contact.html',
-        controller: 'ContactCtrl'
+*/
+    .state('userSchedule', {
+        url: '/userSchedule',
+        templateUrl: 'views/userSchedule/userSchedule.html',
+        controller: 'UserScheduleCtrl as user'
     })
 
     $urlRouterProvider.otherwise('/login')
