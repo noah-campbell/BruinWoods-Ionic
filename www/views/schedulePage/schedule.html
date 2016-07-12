@@ -1,29 +1,34 @@
-<ion-pane>
-    <ion-header-bar class="bar-dark" style="background-color:#009d97">
-    </ion-header-bar>
-    <ion-content scroll="true" direction="xy" has-bouncing="false" on-scroll="schedule.gotScrolled()">
-        <div id="gridBody" class="grid-body ui-block">
-            <div style="position:relative" ng-repeat="day in schedule.days">
-                <div id="gridTimesHolder" class="grid-times-holder" ng-style="{'left':timerleft}">
-                    <div class="grid-times" ng-repeat="hour in schedule.hours">
-                        <div class="grid-time-label">{{hour}}</div>
+<ion-view>
+    <ion-nav-bar>
+        <ion-nav-back-button><i class="ion-arrow-left-c" ng-click="schedule.myGoBack()">Back</i>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-pane>
+        <ion-header-bar class="bar-dark" style="background-color:#009d97">
+        </ion-header-bar>
+        <ion-content scroll="true" direction="xy" has-bouncing="false" on-scroll="schedule.gotScrolled()">
+            <div id="gridBody" class="grid-body ui-block">
+                <div style="position:relative" ng-repeat="day in schedule.days">
+                    <div id="gridTimesHolder" class="grid-times-holder" ng-style="{'left':timerleft}">
+                        <div class="grid-times" ng-repeat="hour in schedule.hours">
+                            <div class="grid-time-label">{{hour}}</div>
+                        </div>
                     </div>
-                </div>
-                <div class="grid-sessions" ng-style="{'height' : (50 * hours.length + 24) + 'px'}">
-                    <div class="grid-sessions-day" ng-style="{'overflow': 'true', 'width' : (130 * schedule.rooms.length + 60) + 'px'}">
-                        <div ng-repeat="event in schedule.events| filter:{ dateformat: day.dateformat}">
-                            <div class="grid-session-cell" ng-click="schedule.popup(event)" ng-style="{'top':event.top, 'left':event.left, 'height':event.height, 'background-color':event.color}">
-                                
-                                <div class="grid-session-title">{{event.eventname}}</div>
-                                <div class="grid-session-time">{{event.starthour}}-{{event.endhour}}</div>
+                    <div class="grid-sessions" ng-style="{'height' : (50 * hours.length + 24) + 'px'}">
+                        <div class="grid-sessions-day" ng-style="{'overflow': 'true', 'width' : (130 * schedule.rooms.length + 60) + 'px'}">
+                            <div ng-repeat="event in schedule.events| filter:{ dateformat: day.dateformat}">
+                                <div class="grid-session-cell" ng-click="schedule.popup(event)" ng-style="{'top':event.top, 'left':event.left, 'height':event.height, 'background-color':event.color}">
+                                    <div class="grid-session-title">{{event.eventname}}</div>
+                                    <div class="grid-session-time">{{event.starthour}}-{{event.endhour}}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="grid-date-holder" ng-style="{'overflow': 'true', 'width' : (200 * rooms.length) + 'px'}">
-                    <div class="day-label">{{day.longdate}}</div>
+                    <div class="grid-date-holder" ng-style="{'overflow': 'true', 'width' : (200 * rooms.length) + 'px'}">
+                        <div class="day-label">{{day.longdate}}</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </ion-content>
-</ion-pane>
+        </ion-content>
+    </ion-pane>
+</ion-view>
