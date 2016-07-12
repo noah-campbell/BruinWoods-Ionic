@@ -5,10 +5,10 @@
         .module('app')
         .controller('ScheduleCtrl', ScheduleCtrl);
 
-    ScheduleCtrl.$inject = ['$ionicScrollDelegate', 'scheduleFactory', '$scope', '$ionicPopup'];
+    ScheduleCtrl.$inject = ['$ionicScrollDelegate', 'scheduleFactory', '$scope', '$ionicPopup', '$ionicHistory'];
 
     /* @ngInject */
-    function ScheduleCtrl($ionicScrollDelegate, scheduleFactory, $scope, $ionicPopup) {
+    function ScheduleCtrl($ionicScrollDelegate, scheduleFactory, $scope, $ionicPopup, $ionicHistory) {
         var vm = this;
         var startHour = 6;
         var endHour = 23;
@@ -27,6 +27,11 @@
             getEvents();
         }
         activate();
+
+        vm.myGoBack = function() {
+            $ionicHistory.goBack();
+        }
+
 
         function popup(event) {
             console.log(event)
@@ -47,9 +52,9 @@
 
         function saveEvent(id) {
             scheduleFactory.saveEvent(id)
-                .then(function(){
-                    
-                }, function(err){
+                .then(function() {
+
+                }, function(err) {
                     console.log(err);
                 })
         }
