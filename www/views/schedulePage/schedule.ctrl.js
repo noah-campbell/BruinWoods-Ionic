@@ -52,9 +52,12 @@
 
         function saveEvent(id) {
             scheduleFactory.saveEvent(id)
-                .then(function() {
-
-                }, function(err) {
+                .then(function(){
+                    var alert = $ionicPopup.alert({
+                        title: " ",
+                        template: "<p>Saved!</p>"
+                    })
+                }, function(err){
                     console.log(err);
                 })
         }
