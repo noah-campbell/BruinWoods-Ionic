@@ -1,21 +1,33 @@
-<ion-header-bar class="bar-stable">
-    <h1 class="title">Service Provider Details</h1>
-</ion-header-bar>
-<ion-content>
-    <div class="row header">
-        <div class="col">Time</div>
-        <div class="col">Name</div>
-        <div class="col">Location</div>
-        <div class="col">Description</div>
-        <!-- <div class="col"></div> -->
-    </div>
-    <div class="row" ng-repeat="event in user.events | orderBy:event.startTime">
-        <div class="col">{{event.date}}<br/>{{event.startHour}} - {{event.endHour}}</div>
-        <div class="col">{{event.name}}</div>
-        <div class="col">{{event.location}}</div>
-        <div class="col">{{event.description}}</div>
-        <!-- <div class="col">
+<ion-view title="Saved Events">
+    <ion-nav-bar>
+        <ion-nav-back-button><i class="ion-arrow-left-c" ng-click="schedule.myGoBack()">Back</i>
+        </ion-nav-back-button>
+        <h3>Saved Events</h3>
+    </ion-nav-bar>
+    <ion-content>
+        <div class="row header">
+            <div class="col col-25"><b>Time</b></div>
+            <div class="col"><b>Event Name</b></div>
+            <!-- <div class="col">Location</div>
+            <div class="col">Description</div> -->
+            <!-- <div class="col"></div> -->
+        </div>
+        <div class="row" ng-repeat="event in user.events | orderBy:'startTime'">
+            <div class=col>
+                <div class="row" ng-click="details = !details">
+                    <div class="col col-25">{{event.date}}<br/> {{event.startHour}} - {{event.endHour}}</div>
+                  <!--   <div class="col" ng-hide="details == true">{{event.name}}</div> -->
+                    <div class="col">
+                        <div class="row" ><b>Event Name : </b> {{event.name}}</div>
+                        <!-- <div class="row" ><b>Event Time: </b>{{event.startHour}} - {{event.endHour}}</div> -->
+                        <div class="row" ><b>Location : </b> {{event.location}} </div>
+                        <div class="row" ><b>Description : </b> {{event.description}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col">
             <button class="button" ng-click="ctrl.add($index)">Add</button>
         </div> -->
-    </div>
-</ion-content>
+        </div>
+    </ion-content>
+</ion-view>
