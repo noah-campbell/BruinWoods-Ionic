@@ -13,17 +13,19 @@
             </div>
             <div ng-show="home.schedule" id="flipped">
                 <a ng-click="home.toggleSchedule()" class="button button-full scheduleHeader">SCHEDULE</a>
-                <div class="row">
+                <div class="row"">
                     <div class="col" ng-repeat="schedule in home.schedules">
-                        <button class="button button-full" id="scheduleItems" ng-click="home.openInAppBrowser(schedule.url)">
+                        <button class="button button-small button-full" id="scheduleItems" ng-click="home.openInAppBrowser(schedule.url)">
                             {{schedule.name}}
                         </button>
-                        <a ui-sref="schedule">Schedule Page</a>
-                        <a ui-sref="userSchedule">Saved Events</a>
                         <!-- </div>
                     <div class="col">
                         <button class="button button-full" id="scheduleItems" ui-sref="schedule">Schedule Page</button> -->
                     </div>
+                </div>
+                <div class="row" >
+                    <a class="col button button-small button-round" ui-sref="schedule">Schedule Page</a>
+                    <a class="col button button-small button-round" ui-sref="userSchedule">Saved Events</a>
                 </div>
             </div>
         </div>

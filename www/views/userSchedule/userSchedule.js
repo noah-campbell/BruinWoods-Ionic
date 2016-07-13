@@ -5,12 +5,13 @@
         .module('app')
         .controller('UserScheduleCtrl', UserScheduleCtrl);
 
-    UserScheduleCtrl.$inject = ['userFactory'];
+    UserScheduleCtrl.$inject = ['userFactory', '$scope'];
 
     /* @ngInject */
-    function UserScheduleCtrl(userFactory) {
+    function UserScheduleCtrl(userFactory, $scope) {
         var vm = this;
         vm.title = 'UserScheduleCtrl';
+        vm.goBack = goBack;
 
         activate();
 
@@ -24,14 +25,19 @@
         		.then(function(response) {
         			vm.events = response.data.eventIds;
         			vm.events.forEach(function(event) {
+        				event.startTime = moment(event.startTime);
         				event.date = moment(event.startTime).format("MM/DD/YYYY");
-        				event.startTime = moment(event.startTime).format("hh:mm A");
-        				event.endTime = moment(event.endTime).format("hh:mm A");
+        				event.startHour = moment(event.startTime).format("hh:mm A");
+        				event.endHour = moment(event.endTime).format("hh:mm A");
         			})
  					console.log(vm.events);
         		}, function(err) {
         			console.log(err);
         		})
+        }
+
+        function goBack() {
+        	$state.go('homepage');
         }
     }
 })();

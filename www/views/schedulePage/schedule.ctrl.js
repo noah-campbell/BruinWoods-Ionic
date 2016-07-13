@@ -75,7 +75,7 @@
 
 
         function getRooms() {
-            var rooms = ['Library', 'Pool'];
+            var rooms = ['Library', 'Pool', 'Lake'];
             var margin = 16;
 
             var tmp = [];
@@ -126,8 +126,8 @@
                         var Event = {
                             id: event._id,
                             eventname: event.name,
-                            starthour: new Date(event.startTime).getHours() + ':' + new Date(event.startTime).getMinutes(),
-                            endhour: new Date(event.endTime).getHours() + ':' + new Date(event.endTime).getMinutes(),
+                            starthour: moment(event.startTime).format("hh:mm"),
+                            endhour: moment(event.endTime).format("hh:mm"),
                             room: event.location,
                             description: event.description,
                             dateformat: new Date(event.startTime).toLocaleDateString(),
